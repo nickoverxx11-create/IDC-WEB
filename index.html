@@ -69,6 +69,7 @@
     </div>
 
         <div class="controls">
+            <button class="btn btn-info" onclick="openGuidebook()">📖 Open Guidebook</button>
             <button class="btn btn-primary" onclick="testZone1()">🧪 Test My Rules</button>
             <button class="btn btn-danger" onclick="resetZone(1)">🔄 Reset</button>
         </div>
@@ -98,11 +99,62 @@
         <div class="led-slot"></div>
 
         <div class="multi-type-grid">
-            <div class="type-section fire"><h3>🔥 Fire Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
-            <div class="type-section water"><h3>💧 Water Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'water')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'water')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'water')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'water')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
-            <div class="type-section grass"><h3>🍃 Grass Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
-            <div class="type-section dragon"><h3>🐉 Dragon Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
+    <!-- Fire -->
+    <div class="type-section fire">
+        <div class="type-header-row">
+            <h3>🔥 Fire Rules</h3>
+            <button class="btn-mini-reset" onclick="resetZone2Type('fire')" title="Reset Fire Only">↺</button>
         </div>
+        <div class="rule-slots-container">
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div>
+        </div>
+    </div>
+
+    <!-- Water -->
+    <div class="type-section water">
+        <div class="type-header-row">
+            <h3>💧 Water Rules</h3>
+            <button class="btn-mini-reset" onclick="resetZone2Type('water')" title="Reset Water Only">↺</button>
+        </div>
+        <div class="rule-slots-container">
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'water')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'water')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'water')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'water')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div>
+        </div>
+    </div>
+
+    <!-- Grass -->
+    <div class="type-section grass">
+        <div class="type-header-row">
+            <h3>🍃 Grass Rules</h3>
+            <button class="btn-mini-reset" onclick="resetZone2Type('grass')" title="Reset Grass Only">↺</button>
+        </div>
+        <div class="rule-slots-container">
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div>
+        </div>
+    </div>
+
+    <!-- Dragon -->
+    <div class="type-section dragon">
+        <div class="type-header-row">
+            <h3>🐉 Dragon Rules</h3>
+            <button class="btn-mini-reset" onclick="resetZone2Type('dragon')" title="Reset Dragon Only">↺</button>
+        </div>
+        <div class="rule-slots-container">
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div>
+            <div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div>
+        </div>
+    </div>
+</div>
         <div class="feature-bank">
             <h3>🎴 Available Clue Cards (Click to Flip, Drag to Use)</h3>
             <div class="feature-list" id="feature-bank-list-z2"></div>
@@ -128,6 +180,7 @@
     </div>
 
         <div class="controls">
+            <button class="btn btn-info" onclick="openGuidebook()">📖 Open Guidebook</button>
             <button class="btn btn-primary" onclick="testZone2()">🧪 Test Master Plan</button>
             <button class="btn btn-danger" onclick="resetZone(2)">🔄 Reset</button>
         </div>
@@ -275,6 +328,33 @@
         <button class="btn btn-primary" id="next-boss-btn" onclick="nextBoss()" style="display:none;">⚔️ Next Guardian</button>
     </div>
 </div> 
+
+<!-- Guidebook Modal (Carousel Version) -->
+<div id="guidebook-modal" class="modal">
+    <div class="modal-content guidebook-container">
+        <span class="close-modal" onclick="closeGuidebook()">&times;</span>
+        
+        <div class="guidebook-viewer">
+            <!-- Left Button -->
+            <button class="nav-btn prev-btn" onclick="changeGuidePage(-1)">&#10094;</button>
+            
+            <!-- Image Area -->
+            <div class="guide-display">
+                <h2 id="guide-title">🔥 Fire Type Analysis</h2>
+                
+                <!-- The Image -->
+                <div class="guide-image-wrapper">
+                    <img id="guide-img" src="fire.png" alt="Guidebook Page">
+                </div>
+                
+                <p id="guide-page-num">Page 1 of 4</p>
+            </div>
+
+            <!-- Right Button -->
+            <button class="nav-btn next-btn" onclick="changeGuidePage(1)">&#10095;</button>
+        </div>
+    </div>
+</div>
 
     <!-- Scripts -->
     <script src="loader.js"></script>

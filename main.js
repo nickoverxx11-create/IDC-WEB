@@ -1429,3 +1429,94 @@ function trustBot(botName) {
 function nextBoss() {
     loadBoss(currentBossIndex + 1);
 }
+
+// --- Guidebook Logic ---
+function openGuidebook() {
+    document.getElementById('guidebook-modal').style.display = 'block';
+}
+
+function closeGuidebook() {
+    document.getElementById('guidebook-modal').style.display = 'none';
+}
+
+const guidePages = [
+    { title: "🔥 Fire Type Analysis", img: "fire.png" },
+    { title: "💧 Water Type Analysis", img: "water.png" },
+    { title: "🍃 Grass Type Analysis", img: "grass.png" },
+    { title: "🐉 Dragon Type Analysis", img: "dragon.png" }
+];
+
+let currentGuideIndex = 0;
+
+// --- Zone 2 Individual Reset Logic ---
+function resetZone2Type(type) {
+    // 1. Reset data model for this specific type
+    zone2Rules[type] = [null, null, null, null];
+
+    // 2. Find the container for this type
+    const typeSection = document.querySelector(`.type-section.${type}`);
+    
+    // 3. Reset the visual slots inside this section
+    const slots = typeSection.querySelectorAll('.rule-slot');
+    
+    slots.forEach((slot, index) => {
+        // Remove active classes
+        slot.classList.remove('filled', 'low-state');
+        
+        // Remove click handlers (clone node to strip events)
+        const newSlot = slot.cloneNode(true);
+        slot.parentNode.replaceChild(newSlot, slot);
+        
+        // Restore label text based on index
+        let labelText = "";
+        if (index === 0) labelText = "1st (3pts)";
+        else if (index === 1) labelText = "2nd (2pts)";
+        else if (index === 2) labelText = "3rd (2pts)";
+        else labelText = "4th (1pt)";
+        
+        newSlot.innerHTML = `<div class="slot-label">${labelText}</div>`;
+        
+        // Re-attach drop events (because cloneNode removes them)
+        newSlot.setAttribute('ondrop', `dropFeature(event, 2, ${index}, '${type}')`);
+        newSlot.setAttribute('ondragover', 'allowDrop(event)');
+    });
+
+    // 4. Update LEDs to reflect removal
+    updateLedBoard();
+}
+
+// Handle Next/Prev clicks
+function changeGuidePage(direction) {
+    // Calculate new index with wrapping
+    currentGuideIndex += direction;
+
+    if (currentGuideIndex >= guidePages.length) {
+        currentGuideIndex = 0; // Wrap to start
+    } else if (currentGuideIndex < 0) {
+        currentGuideIndex = guidePages.length - 1; // Wrap to end
+    }
+
+    updateGuideView();
+}
+
+// Update the DOM elements
+function updateGuideView() {
+    const page = guidePages[currentGuideIndex];
+    
+    // Update Title
+    document.getElementById('guide-title').innerText = page.title;
+    
+    // Update Image Source
+    document.getElementById('guide-img').src = page.img;
+    
+    // Update Page Counter
+    document.getElementById('guide-page-num').innerText = `Page ${currentGuideIndex + 1} of ${guidePages.length}`;
+}
+
+// Close modal if clicking outside (keeping this from previous code)
+window.onclick = function(event) {
+    const modal = document.getElementById('guidebook-modal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
