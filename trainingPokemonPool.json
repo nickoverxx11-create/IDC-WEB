@@ -1,0 +1,1602 @@
+[
+  {
+    "name": "Charmander-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Vulpix-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 6,
+    "Defense": 3,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Growlithe-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Ponyta-C",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 2,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Magmar-C",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 1,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Flareon-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 9,
+    "Defense": 3,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Cyndaquil-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Slugma-C",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 9,
+    "Defense": 2,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Houndour-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 8,
+    "Defense": 4,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Torchic-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 4,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Numel-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 6,
+    "Defense": 4,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Torkoal-C",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 7,
+    "Defense": 1,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Chimchar-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 7,
+    "Defense": 2,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Magby-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 8,
+    "Defense": 4,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Tepig-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Pansear-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 6,
+    "Defense": 3,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Darumaka-C",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 5,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Litten-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 4,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Scorbunny-C",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Fuecoco-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 1,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Ponyta-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 2,
+    "Defense": 6,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 1,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Growlithe-N",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 8,
+    "Defense": 6,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Magmar-N",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 7,
+    "Defense": 9,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Squirtle-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 5,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Vulpix-N",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 6,
+    "Defense": 5,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Bulbasaur-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Flareon-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Charmander-N",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 9,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 3,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Dratini-N",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 2,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Torkoal-N",
+    "HasWings": 1,
+    "Speed": 2,
+    "Attack": 7,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Slugma-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Torchic-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Pansear-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 5,
+    "Defense": 8,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Krabby-N",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 1,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Houndour-N",
+    "HasWings": 1,
+    "Speed": 3,
+    "Attack": 1,
+    "Defense": 4,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 1,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Chimchar-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Numel-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 1,
+    "Defense": 9,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 2,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Magby-N",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Rowlet-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 2,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Fuecoco-N",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 3,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Squirtle-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Psyduck-C",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 6,
+    "Defense": 6,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Poliwag-C",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Slowpoke-C",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 7,
+    "Defense": 8,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Seel-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Shellder-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 9,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Krabby-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 9,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Horsea-C",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 4,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Staryu-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Magikarp-C",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 1,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Vaporeon-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Totodile-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Marill-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 2,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Wooper-C",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Mudkip-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Lotad-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 3,
+    "Defense": 3,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Piplup-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Oshawott-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 6,
+    "Defense": 5,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Froakie-C",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 6,
+    "Defense": 4,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Popplio-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Krabby-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 9,
+    "Defense": 9,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Seel-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Shellder-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 9,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Pikachu-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 6,
+    "Defense": 5,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Slowpoke-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 8,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Geodude-N",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 8,
+    "Defense": 1,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 5,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Psyduck-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 6,
+    "Defense": 6,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 8,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Vaporeon-N",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 8,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Gible-N",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Tentacool-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 4,
+    "Defense": 5,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Marill-N",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Horsea-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 4,
+    "Defense": 7,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Squirtle-N",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 10,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Mudkip-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Paras-N",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 9,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Poliwag-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Magikarp-N",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 9,
+    "Defense": 2,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Piplup-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Froakie-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 6,
+    "Defense": 4,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 9,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Popplio-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Bulbasaur-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 1,
+    "Defense": 6,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Oddish-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Paras-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 3,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 3,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Bellsprout-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 4,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Exeggcute-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 4,
+    "Defense": 8,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Tangela-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 3,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Chikorita-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 2,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Hoppip-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 4,
+    "Defense": 5,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Sunkern-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 3,
+    "Defense": 9,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Turtwig-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 2,
+    "Defense": 8,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Cherubi-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 4,
+    "Defense": 5,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Petilil-C",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 4,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Chespin-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 2,
+    "Defense": 7,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Skiddo-C",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Rowlet-C",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Grookey-C",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Applin-C",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 4,
+    "Defense": 8,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Ferroseed-C",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Phantump-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 3,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Gossifleur-C",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 4,
+    "Defense": 6,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Tangela-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 1,
+    "Defense": 6,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Chikorita-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 9,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Exeggcute-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 4,
+    "Defense": 8,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Rattata-N",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 6,
+    "Defense": 4,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 6,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Paras-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 6,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 3,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Sandshrew-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 8,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Oddish-N",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 5,
+    "Defense": 7,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 9,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Sunkern-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 3,
+    "Defense": 4,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Ponyta-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 6,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 8,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Bellsprout-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 8,
+    "Defense": 4,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Bulbasaur-N",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Turtwig-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 1,
+    "Defense": 2,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Rowlet-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Chespin-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 6,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Shellder-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 2,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 2,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Applin-N",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 8,
+    "Defense": 4,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Hoppip-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 1,
+    "Defense": 2,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Grookey-N",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 6,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Ferroseed-N",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 5,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Phantump-N",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 3,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Dratini-C",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Bagon-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 8,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Gible-C",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Axew-C",
+    "HasWings": 1,
+    "Speed": 6,
+    "Attack": 9,
+    "Defense": 6,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Deino-C",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Goomy-C",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 4,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Noibat-C",
+    "HasWings": 1,
+    "Speed": 6,
+    "Attack": 5,
+    "Defense": 4,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Jangmo-o-C",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 6,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dreepy-C",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 6,
+    "Defense": 3,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dragonair-C",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Shelgon-C",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Gabite-C",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Vibrava-C",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 6,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Zweilous-C",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Sliggoo-C",
+    "HasWings": 1,
+    "Speed": 6,
+    "Attack": 7,
+    "Defense": 8,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Hakamo-o-C",
+    "HasWings": 1,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Drakloak-C",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 5,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Frigibax-C",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 1,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Salamence-C",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 7,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Tyrunt-C",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Goomy-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 5,
+    "Defense": 4,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 10,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Axew-N",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 9,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Deino-N",
+    "HasWings": 1,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Pidgey-N",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 5,
+    "Defense": 5,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Bagon-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 8,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Aerodactyl-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 3,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 6,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Gible-N",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 9,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Salamence-N",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 3,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Charizard-N",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 9,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Noibat-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 5,
+    "Defense": 4,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dratini-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Jangmo-o-N",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 6,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dreepy-N",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 3,
+    "Defense": 6,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Gabite-N",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Vibrava-N",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 7,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 6,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Zweilous-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Hakamo-o-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Sliggoo-N",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 7,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 9,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Frigibax-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 1,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Tyrunt-N",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 4,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  }
+]

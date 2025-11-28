@@ -1,0 +1,1002 @@
+[
+  {
+    "name": "Charizard",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Moltres",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 2,
+    "HabitatAltitude": 10,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Entei",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 10,
+    "Defense": 1,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Ho-Oh",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 1,
+    "HabitatAltitude": 10,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Blaziken",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 10,
+    "Defense": 1,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Infernape",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 9,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Arcanine",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 9,
+    "Defense": 1,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Ninetales",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Rapidash",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Typhlosion",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Cinderace",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 10,
+    "Defense": 7,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Coalossal",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 1,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Armarouge",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 6,
+    "Defense": 3,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Chi-Yu",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Heatran",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 2,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Salazzle",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 6,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Volcarona",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 6,
+    "Defense": 1,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Chandelure",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 5,
+    "Defense": 2,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 7,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Talonflame",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 1,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 7,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Centiskorch",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 10,
+    "Defense": 1,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Pyroar",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 7,
+    "Defense": 2,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Incineroar",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 10,
+    "Defense": 3,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Camerupt",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 1,
+    "Defense": 1,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 10,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Houndoom",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 8,
+    "Defense": 5,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 9,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Emboar",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 10,
+    "Defense": 2,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 8,
+    "CorrectType": "fire"
+  },
+  {
+    "name": "Blastoise",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Gyarados",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 10,
+    "Defense": 4,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 7,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Suicune",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 7,
+    "Defense": 10,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Kyogre",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Palkia",
+    "HasWings": 0,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Greninja",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 9,
+    "Defense": 6,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Feraligatr",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 9,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Swampert",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 9,
+    "Defense": 8,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Milotic",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 6,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Empoleon",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Samurott",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 9,
+    "Defense": 8,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Kingler",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 10,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Lapras",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 8,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 1,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Poliwrath",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Starmie",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Cloyster",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 10,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Omastar",
+    "HasWings": 0,
+    "Speed": 5,
+    "Attack": 6,
+    "Defense": 10,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Kabutops",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 10,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Primarina",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Golisopod",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 10,
+    "Defense": 10,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Inteleon",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Urshifu-R",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 9,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Wugtrio",
+    "HasWings": 0,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 5,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 3,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Dondozo",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 9,
+    "Defense": 9,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Wailord",
+    "HasWings": 0,
+    "Speed": 6,
+    "Attack": 8,
+    "Defense": 5,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "water"
+  },
+  {
+    "name": "Venusaur",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 8,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Sceptile",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 3,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Torterra",
+    "HasWings": 0,
+    "Speed": 7,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Rillaboom",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 1,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Decidueye",
+    "HasWings": 1,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Serperior",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 3,
+    "Defense": 9,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Meganium",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Leafeon",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Shiftry",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 1,
+    "Defense": 6,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Ludicolo",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 2,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Roserade",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 2,
+    "Defense": 6,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Breloom",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 3,
+    "Defense": 7,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Chesnaught",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 3,
+    "Defense": 10,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Gogoat",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 2,
+    "Defense": 6,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Tsareena",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 2,
+    "Defense": 9,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Appletun",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 3,
+    "Defense": 8,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Flapple",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 5,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Meowscarada",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 7,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Amoonguss",
+    "HasWings": 0,
+    "Speed": 3,
+    "Attack": 2,
+    "Defense": 7,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 3,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Ferrothorn",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 10,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Exeggutor",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 8,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 6,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Vileplume",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 3,
+    "Defense": 8,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Victreebel",
+    "HasWings": 0,
+    "Speed": 2,
+    "Attack": 1,
+    "Defense": 6,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Tangrowth",
+    "HasWings": 0,
+    "Speed": 1,
+    "Attack": 2,
+    "Defense": 10,
+    "HabitatAltitude": 5,
+    "HabitatTemperature": 4,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Cacturne",
+    "HasWings": 0,
+    "Speed": 4,
+    "Attack": 4,
+    "Defense": 6,
+    "HabitatAltitude": 3,
+    "HabitatTemperature": 7,
+    "CorrectType": "grass"
+  },
+  {
+    "name": "Dragonite",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Garchomp",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Haxorus",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Hydreigon",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 8,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Goodra",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 9,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Kommo-o",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 9,
+    "Defense": 10,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dragapult",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 10,
+    "Defense": 7,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Baxcalibur",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 1,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Latios",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 7,
+    "HabitatAltitude": 10,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Rayquaza",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 10,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dialga",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 10,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 2,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Zekrom",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 10,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Kyurem",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 1,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Tyrantrum",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 10,
+    "Defense": 10,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Noivern",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 7,
+    "Defense": 7,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Flygon",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 7,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 6,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Altaria",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 7,
+    "Defense": 8,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 5,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Kingdra",
+    "HasWings": 1,
+    "Speed": 8,
+    "Attack": 9,
+    "Defense": 9,
+    "HabitatAltitude": 1,
+    "HabitatTemperature": 2,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Dracovish",
+    "HasWings": 1,
+    "Speed": 7,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Duraludon",
+    "HasWings": 0,
+    "Speed": 8,
+    "Attack": 9,
+    "Defense": 10,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 7,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Walking Wake",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 8,
+    "HabitatAltitude": 7,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Iron Jugulis",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 6,
+    "HabitatAltitude": 9,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Miraidon",
+    "HasWings": 1,
+    "Speed": 10,
+    "Attack": 8,
+    "Defense": 9,
+    "HabitatAltitude": 8,
+    "HabitatTemperature": 4,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Druddigon",
+    "HasWings": 1,
+    "Speed": 5,
+    "Attack": 10,
+    "Defense": 8,
+    "HabitatAltitude": 6,
+    "HabitatTemperature": 6,
+    "CorrectType": "dragon"
+  },
+  {
+    "name": "Zygarde",
+    "HasWings": 1,
+    "Speed": 9,
+    "Attack": 9,
+    "Defense": 10,
+    "HabitatAltitude": 4,
+    "HabitatTemperature": 3,
+    "CorrectType": "dragon"
+  }
+]

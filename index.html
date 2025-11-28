@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon AI Adventure</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="zone-navigation">
+        <h2 style="margin-bottom: 15px; color: #333;">🕵🏻‍♂️ A Quest on Rules and Data</h2>
+        <button class="zone-btn active" onclick="switchZone(1)" id="zone1-btn">Zone 1: Clearview Meadow</button>
+        <button class="zone-btn" onclick="switchZone(2)" id="zone2-btn" disabled>Zone 2: Azure Coast</button>
+        <button class="zone-btn" onclick="switchZone(3)" id="zone3-btn" disabled>Zone 3: Whispering Woods</button>
+        <button class="zone-btn" onclick="switchZone(4)" id="zone4-btn" disabled>Zone 4: Sunrise Desert</button>
+         <button class="zone-btn" onclick="switchZone(5)" id="zone5-btn" disabled>🏆 Zone 5: Guardian's Gate</button>
+    </div>
+
+    <div id="zone1" class="zone-container active">
+        <h1><span class="emoji">🏕️</span> Zone 1: Clearview Meadow</h1>
+        <p class="zone-subtitle">Simple Rules</p>
+
+        <div class="dialogue-box">
+            <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
+            <div class="dialogue-text">"Welcome, young researcher! You selected Clue Cards to help CheckBot identify Fire-type Pokémon."</div>
+        </div>
+
+    <div class="hint-wrapper">
+        <button class="btn-hint" onclick="showNextHint(1)">💡 Need a Hint?</button>
+        <div id="zone1-hint-box" class="hint-box">
+            <span id="zone1-hint-text"></span>
+            <span class="hint-counter" id="zone1-hint-counter"></span>
+        </div>
+    </div>
+    
+        <div class="led-slot">
+            <div class="led-board" id="led-board">
+                <h3>💡 LED Feedback Board</h3>
+                <div class="led-grid" id="led-grid-content"></div>
+            </div>
+        </div>
+
+        <div class="rule-slots-container" id="zone1-slots">
+            <div class="rule-slot" ondrop="dropFeature(event, 1, 0)" ondragover="allowDrop(event)">Drop Feature 1</div>
+            <div class="rule-slot" ondrop="dropFeature(event, 1, 1)" ondragover="allowDrop(event)">Drop Feature 2</div>
+            <div class="rule-slot" ondrop="dropFeature(event, 1, 2)" ondragover="allowDrop(event)">Drop Feature 3</div>
+            <div class="rule-slot" ondrop="dropFeature(event, 1, 3)" ondragover="allowDrop(event)">Drop Feature 4</div>
+        </div>
+        <div class="feature-bank">
+            <h3>🎴 Available Clue Cards (Click to Flip, Drag to Use)</h3>
+            <div class="feature-list" id="feature-bank-list-z1"></div>
+        </div>
+
+        <div class="single-test-section">
+        <h3>🕵️‍♀️ Mystery Single Test</h3>
+        <p style="text-align:center; color:#666; margin-bottom:15px;">Click the box to pull <strong>one random Pokémon</strong> and see if it passes your specific rules!</p>
+        
+        <div class="mystery-box-container" onclick="runSingleTest()">
+            <div class="mystery-box">
+                <span style="font-size: 3em;">🎁</span><br>
+                Open Mystery Box
+            </div>
+        </div>
+
+        <!-- The Result Display (Hidden initially) -->
+        <div id="single-test-result" class="single-result-panel">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="testZone1()">🧪 Test My Rules</button>
+            <button class="btn btn-danger" onclick="resetZone(1)">🔄 Reset</button>
+        </div>
+        <div class="results-panel" id="zone1-results"></div>
+        <div class="controls">
+            <button class="btn btn-success" onclick="completeZone(1)" id="zone1-complete" style="display: none;">✅ Continue to Zone 2</button>
+        </div>
+    </div>
+
+    <div id="zone2" class="zone-container">
+        <h1><span class="emoji">🏖️</span> Zone 2: Azure Coast</h1>
+        <p class="zone-subtitle">Multi-Class & Feature Importance</p>
+
+        <div class="dialogue-box">
+             <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
+            <div class="dialogue-text">"Excellent! Now, You chose Clue Cards for all four Pokémon types and decided the order (importance) of the cards."</div>
+        </div>
+
+        <div class="hint-wrapper">
+        <button class="btn-hint" onclick="showNextHint(2)">💡 Need a Hint?</button>
+        <div id="zone2-hint-box" class="hint-box">
+            <span id="zone2-hint-text"></span>
+            <span class="hint-counter" id="zone2-hint-counter"></span>
+        </div>
+        </div>
+
+        <div class="led-slot"></div>
+
+        <div class="multi-type-grid">
+            <div class="type-section fire"><h3>🔥 Fire Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'fire')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
+            <div class="type-section water"><h3>💧 Water Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'water')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'water')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'water')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'water')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
+            <div class="type-section grass"><h3>🍃 Grass Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'grass')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
+            <div class="type-section dragon"><h3>🐉 Dragon Rules</h3><div class="rule-slots-container"><div class="rule-slot" ondrop="dropFeature(event, 2, 0, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">1st (3pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 1, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">2nd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 2, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">3rd (2pts)</div></div><div class="rule-slot" ondrop="dropFeature(event, 2, 3, 'dragon')" ondragover="allowDrop(event)"><div class="slot-label">4th (1pt)</div></div></div></div>
+        </div>
+        <div class="feature-bank">
+            <h3>🎴 Available Clue Cards (Click to Flip, Drag to Use)</h3>
+            <div class="feature-list" id="feature-bank-list-z2"></div>
+        </div>
+
+        <div class="single-test-section">
+        <h3>🕵️‍♀️ Mystery Single Test (Scoring Mode)</h3>
+        <p style="text-align:center; color:#666; margin-bottom:15px;">
+            Click the box to pull a random Pokémon. Your AI will calculate a <strong>Score</strong> for each type based on your rule order!
+        </p>
+        
+        <div class="mystery-box-container zone2-box-container" onclick="runSingleTestZone2()">
+            <div class="mystery-box">
+                <span style="font-size: 3em;">🎁</span><br>
+                Open Scoring Box
+            </div>
+        </div>
+
+        <!-- The Result Display -->
+        <div id="single-test-result-zone2" class="single-result-panel">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="testZone2()">🧪 Test Master Plan</button>
+            <button class="btn btn-danger" onclick="resetZone(2)">🔄 Reset</button>
+        </div>
+        <div class="results-panel" id="zone2-results"></div>
+        <div class="controls">
+            <button class="btn btn-success" onclick="completeZone(2)" id="zone2-complete" style="display: none;">✅ Continue to Zone 3</button>
+        </div>
+    </div>
+
+    <div id="zone3" class="zone-container">
+        <h1><span class="emoji">🏞️</span> Zone 3: Whispering Woods</h1>
+        <p class="zone-subtitle">Data Quality</p>
+
+        <div class="dialogue-box">
+            <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
+            <div class="dialogue-text">"Your rule-based system was good, but now it's time to learn a new way! You sorted between pure (clean) and wild (noisy) dataset packages."</div>
+        </div>
+
+        <div class="progress-indicator">
+            <strong>Progress:</strong> <span id="zone3-progress">Fire Type (1/4)</span>
+            <div class="progress-bar"><div class="progress-fill" id="zone3-progress-bar" style="width: 25%;"></div></div>
+        </div>
+        <div id="zone3-challenge"></div>
+        <div id="zone3-feedback"></div>
+        <div class="controls">
+            <button class="btn btn-success" onclick="completeZone(3)" id="zone3-complete" style="display: none;">✅ Continue to Zone 4</button>
+        </div>
+    </div>
+
+    <div id="zone4" class="zone-container">
+        <h1><span class="emoji">🏜️</span> Zone 4: Sunrise Desert</h1>
+        <p class="zone-subtitle">Training Strategy</p>
+
+        <div class="dialogue-box">
+            <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
+            <div class="dialogue-text">"Final challenge! You selected a limited number of Package Cards to train ChompBot."</div>
+        </div>
+
+        <div class="hint-wrapper">
+        <button class="btn-hint" onclick="showNextHint(4)">💡 Need a Hint?</button>
+        <div id="zone4-hint-box" class="hint-box">
+            <span id="zone4-hint-text"></span>
+            <span class="hint-counter" id="zone4-hint-counter"></span>
+        </div>
+        </div>
+
+        <div class="led-slot"></div>
+
+        <div class="dataset-selection">
+            <h3 style="text-align: center; margin-bottom: 20px;">📦 Available Dataset Packages (Select exactly 4)</h3>
+            <p style="text-align: center; color: #666; margin-bottom: 20px;"><strong>Selected: <span id="selected-count">0</span> / 4</strong></p>
+            <div class="dataset-cards" id="zone4-dataset-cards"></div>
+        </div>
+        <div class="controls">
+            <button class="btn btn-success" onclick="trainZone4()" id="zone4-train" disabled>🚀 Train AI & See Weights</button>
+            <button class="btn btn-danger" onclick="resetZone(4)">🔄 Reset Selection</button>
+        </div>
+        <div class="results-panel" id="zone4-results"></div>
+
+         <div class="single-test-section" id="zone4-single-test" style="display:none;">
+        <h3>🔮 Test Your Trained AI</h3>
+        <p style="text-align:center; color:#666; margin-bottom:15px;">
+            Your AI has learned "weights" from the packages you selected. <br>
+            Click the box to see how it calculates a <strong>Confidence Score</strong> for a random Pokémon!
+        </p>
+        
+        <div class="mystery-box-container zone4-box-container" onclick="runSingleTestZone4()">
+            <div class="mystery-box">
+                <span style="font-size: 3em;">🤖</span><br>
+                Ask ChompBot
+            </div>
+        </div>
+
+        <!-- The Result Display -->
+        <div id="single-test-result-zone4" class="single-result-panel">
+            <!-- Content injected via JS -->
+        </div>
+    </div>
+
+     <div class="controls">
+        <button class="btn btn-success" onclick="completeJourney()" id="zone4-complete" style="display: none;">🎉 Complete Journey</button>
+    </div>
+    </div>
+
+    <div id="zone5" class="zone-container">
+    <h1>🏆 Zone 5: The Guardian's Gate</h1>
+    <p class="zone-subtitle">Human Logic (Rules) vs. AI Logic (Data)</p>
+
+    <div class="dialogue-box">
+        <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
+        <div class="dialogue-text">
+            "This is it! Three powerful Guardians block the path. 
+            <strong>CheckBot</strong> uses the rules CheckBot learned in Zone 2. 
+            <strong>ChompBot</strong> uses the patterns ChompBot learned in Zone 4.
+            They might disagree... You must decide which bot to trust for each Guardian!"
+        </div>
+    </div>
+
+    <div id="boss-battle-area" style="display:none;">
+        
+        <!-- The Boss Card -->
+        <div class="boss-section">
+            <div class="boss-card">
+                <div style="font-size:4em;">👺</div>
+                <h2 id="boss-name">Guardian 1</h2>
+                <div class="stats-grid-small" id="boss-stats-display">
+                    <!-- Stats injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- The Bots -->
+        <div class="bots-comparison">
+            
+            <!-- CheckBot (Rules) -->
+            <div class="bot-card checkbot">
+                <div class="bot-icon">🤖</div>
+                <h3>CheckBot</h3>
+                <p class="bot-subtitle">Rule-Based System</p>
+                <div class="bot-thinking" id="checkbot-reasoning">Analyzing rules...</div>
+                <div class="bot-prediction" id="checkbot-prediction">...</div>
+                <button class="btn btn-primary" onclick="trustBot('checkbot')">Trust CheckBot</button>
+            </div>
+
+            <!-- VS Badge -->
+            <div class="vs-badge">VS</div>
+
+            <!-- ChompBot (ML) -->
+            <div class="bot-card chompbot">
+                <div class="bot-icon">🦖</div>
+                <h3>ChompBot</h3>
+                <p class="bot-subtitle">Trained Model</p>
+                <div class="bot-thinking" id="chompbot-reasoning">Calculating weights...</div>
+                <div class="bot-prediction" id="chompbot-prediction">...</div>
+                <button class="btn btn-success" onclick="trustBot('chompbot')">Trust ChompBot</button>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="zone5-feedback" class="feedback" style="display:none; margin-top:20px;"></div>
+
+    <div class="controls">
+        <button class="btn btn-primary" id="start-boss-btn" onclick="startBossBattle()">⚔️ Summon Guardian 1</button>
+        <button class="btn btn-primary" id="next-boss-btn" onclick="nextBoss()" style="display:none;">⚔️ Next Guardian</button>
+    </div>
+</div> 
+
+    <!-- Scripts -->
+    <script src="loader.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
