@@ -5,14 +5,20 @@
 }
 
 body { 
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 15s ease infinite;
+  margin: 0; 
+  padding: 0; 
+  box-sizing: border-box; 
   min-height: 100vh; 
   padding: 20px;
   position: relative;
   overflow-x: hidden;
+  
+  /* Background properties */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  transition: background-image 0.5s ease-in-out; /* Makes the switch look smooth */
 }
 
 @keyframes gradientShift {
@@ -117,11 +123,15 @@ h1 .emoji {
 .zone-navigation { 
   text-align: center; 
   margin-bottom: 30px; 
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(20px);
+  /* Same transparency here */
+  background: rgba(255, 255, 255, 0.85);
+  
+  /* REMOVE BLUR HERE TOO */
+  backdrop-filter: blur(0px); 
+  
   padding: 25px; 
   border-radius: 20px; 
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.5);
   position: relative;
   z-index: 1;
@@ -183,19 +193,22 @@ h1 .emoji {
 
 .zone-container { 
   display: none; 
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: blur(30px);
+  /* 1. Change alpha to 0.7 or 0.8 so you can still read text easily */
+  background: rgba(255, 255, 255, 0.75); 
+  
+  /* 2. CHANGE THIS TO 0px TO REMOVE BLUR */
+  backdrop-filter: blur(0px); 
+  
   border-radius: 25px; 
   padding: 45px; 
-  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35), 0 0 40px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.2);
   max-width: 1400px; 
   margin: 0 auto;
-  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   position: relative;
   z-index: 1;
   animation: fadeInUp 0.6s ease-out;
 }
-
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -1577,8 +1590,8 @@ h1 {
 
 .bot-card:hover { transform: translateY(-5px); }
 
-.bot-card.checkbot { border-top: 5px solid #2196f3; }
-.bot-card.chompbot { border-top: 5px solid #4caf50; }
+.bot-card.RuleBot { border-top: 5px solid #2196f3; }
+.bot-card.DataBot { border-top: 5px solid #4caf50; }
 
 .bot-icon { font-size: 3em; margin-bottom: 10px; }
 .bot-subtitle { color: #888; font-size: 0.9em; margin-bottom: 15px; font-style: italic; }
@@ -1810,3 +1823,256 @@ h1 {
     .nav-btn { width: 40px; height: 40px; font-size: 18px; }
     .guide-display h2 { font-size: 1.4em; }
 }
+
+/* Helper to align the 2x2 grid in the reveal */
+.feedback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+/* Minimized Guidebook next to Professor */
+.btn-guide-mini {
+    font-size: 0.6em;
+    padding: 4px 10px;
+    background: #ffa726;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+/* Header for Feature Bank with Reset */
+.bank-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.btn-mini-reset {
+    background: #f44336;
+    color: white;
+    border: none;
+    
+    /* Set equal width and height for a perfect circle */
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%; /* This makes it a circle */
+    
+    /* Center the icon/text inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Make the icon inside a bit bigger too */
+    font-size: 12px; 
+    
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Optional: adds depth */
+    transition: transform 0.2s;
+}
+
+.btn-mini-reset:hover {
+    transform: scale(1.1); /* Slightly grows when you hover */
+    background: #d32f2f;
+}
+
+/* Statistical Block */
+.test-block-container {
+    background: #e3f2fd;
+    border: 2px solid #2196f3;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.btn-run-stats {
+    background: #2196f3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Locking Logic */
+.locked {
+    opacity: 0.3;
+    pointer-events: none;
+    filter: grayscale(1);
+    transition: all 0.5s ease;
+}
+
+.stats-mini-results {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+/* Compact Wrapper */
+.compact-led-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    background: #1a252f;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #34495e;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.led-header-row {
+    margin-left: 28px; /* Alignment with the side image */
+    margin-bottom: 4px;
+}
+
+.column-img { height: 25px; width: auto; display: block; }
+.row-img { width: 25px; height: auto; display: block; }
+
+.led-body-row { display: flex; align-items: flex-start; }
+
+/* The Grid (4 columns for the 4 types) */
+.led-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 3px;
+    margin-left: 5px;
+}
+
+/* Tiny Cells */
+.led-cell-compact {
+    background: #2c3e50;
+    width: 32px;
+    height: 18px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+.led-compact {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #3e5061;
+}
+
+/* Integrated Layout for Zone 1/2 */
+.rules-layout-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .rules-layout-flex { flex-direction: column; }
+}
+
+.led-grid-flipped {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 columns for Features */
+    gap: 3px;
+    margin-left: 5px;
+}
+
+/* Adjust image sizes based on the new orientation */
+.column-img-wide { 
+    width: 600px; /* Adjust this until it aligns with the 6 columns */
+    height: auto; 
+    display: block; 
+}
+
+.row-img-tall { 
+    height: 100px; /* Adjust this until it aligns with the 4 rows */
+    width: auto; 
+    display: block; 
+}
+
+.led-cell-compact {
+    background: #2c3e50;
+    width: 32px; /* Small width to fit 6 in a row */
+    height: 18px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+/* The main container - now white and clean */
+.compact-led-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    background: #ffffff; /* White background */
+    padding: 10px;
+    border-radius: 12px;
+    border: 2px solid #e0e0e0; /* Light gray border */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Softer shadow */
+}
+
+/* Header Row (Top icons) */
+.led-header-row {
+    margin-left: 20px; /* Aligns with the grid start */
+    margin-bottom: 5px;
+}
+
+.column-img-wide { 
+    width: 210px; 
+    height: auto; 
+    display: block; 
+}
+
+.led-body-row { 
+    display: flex; 
+    align-items: center; 
+}
+
+/* The Grid Cells - Light Style */
+.led-grid-flipped {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); 
+    gap: 4px;
+}
+
+.led-cell-compact {
+    background: #f8f9fa; /* Very light gray cell */
+    border: 1px solid #dee2e6; /* Thin border for definition */
+    width: 34px;
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+}
+
+/* The LED "Off" state */
+.led-compact {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ced4da; /* Light silver when off */
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
+}
+
+/* The LED "On" states - kept bright for visibility on white */
+.led-compact.green { 
+    background: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.6);
+}
+
+.led-compact.red { 
+    background: #dc3545;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.6);
+}
+

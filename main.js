@@ -8,16 +8,19 @@ let zone3Selections = [];
 let zone4Selections = [];
 let currentZone = 1;
 let availableDatasets = {};
+let z2StatsDone = false;
+let z2SingleCount = 0;
 
 const features = [
-    { id: 'HasWings', name: 'Wings', high: '🦅 Has Wings', low: '🚫 No Wings' },
-    { id: 'Speed', name: 'Speed', high: '⚡ High Speed', low: '🐢 Low Speed' },
     { id: 'Attack', name: 'Attack', high: '⚔️ High Attack', low: '⚪ Low Attack' },
     { id: 'Defense', name: 'Defense', high: '🛡️ High Defense', low: '🩹 Low Defense' },
-    { id: 'HabitatAltitude', name: 'Altitude', high: '🏔️ High Altitude', low: '🌊 Low Altitude' },
-    { id: 'HabitatTemperature', name: 'Temp', high: '🌡️ High Temp', low: '❄️ Low Temp' }
+    { id: 'Speed', name: 'Speed', high: '⚡ High Speed', low: '🐢 Low Speed' },
+    { id: 'HasWings', name: 'Wings', high: '🦅 Has Wings', low: '🚫 No Wings' },
+    { id: 'HabitatTemperature', name: 'Temp', high: '🌡️ High Temp', low: '❄️ Low Temp' },
+    { id: 'HabitatAltitude', name: 'Altitude', high: '🏔️ High Altitude', low: '🌊 Low Altitude' }
 ];
 const types = ['fire', 'water', 'grass', 'dragon'];
+
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', async () => {
@@ -190,24 +193,31 @@ function initializeZone4Data() {
         '2': { id: '2', name: "💧 Clear Water", count: 20, data: clear_water_data, type: 'water', quality: 'pure' },
         '3': { id: '3', name: "🍃 Clear Grass", count: 20, data: clear_grass_data, type: 'grass', quality: 'pure' },
         '4': { id: '4', name: "🐉 Clear Dragon", count: 20, data: clear_dragon_data, type: 'dragon', quality: 'pure' },
-        '5': { id: '5', name: "🔥 Noisy Fire", count: 20, data: noisy_fire_data, type: 'fire', quality: 'noisy' },
-        '6': { id: '6', name: "💧 Noisy Water", count: 20, data: noisy_water_data, type: 'water', quality: 'noisy' },
-        '7': { id: '7', name: "🍃 Noisy Grass", count: 20, data: noisy_grass_data, type: 'grass', quality: 'noisy' },
-        '8': { id: '8', name: "🐉 Noisy Dragon", count: 20, data: noisy_dragon_data, type: 'dragon', quality: 'noisy' },
+        '5': { id: '5', name: "🔥 Rare Fire", count: 20, data: noisy_fire_data, type: 'fire', quality: 'noisy' },
+        '6': { id: '6', name: "💧 Meowth Water", count: 20, data: noisy_water_data, type: 'water', quality: 'noisy' },
+        '7': { id: '7', name: "🍃 Rare Grass", count: 20, data: noisy_grass_data, type: 'grass', quality: 'noisy' },
+        '8': { id: '8', name: "🐉 Meowth Dragon", count: 20, data: noisy_dragon_data, type: 'dragon', quality: 'noisy' },
         '9': { id: '9', name: "🌈 Big Clear Mix", count: 20, span: 2, data: mixed_data, type: 'mixed', quality: 'pure' }
     };
 }
 
+const typeRows = ['fire', 'water', 'grass', 'dragon']; // 4 rows
+const featureCols = ['Attack', 'Defense', 'Speed', 'HasWings', 'HabitatTemperature', 'HabitatAltitude']; // 6 columns
+
 function initializeLedBoard() {
     const grid = document.getElementById('led-grid-content');
+    if (!grid) return;
     grid.innerHTML = '';
-    grid.innerHTML += `<div class="led-label"></div>` + features.map(f => `<div class="led-header">${f.name}</div>`).join('');
-    types.forEach(type => {
-        grid.innerHTML += `<div class="led-label">${type.charAt(0).toUpperCase() + type.slice(1)}</div>`;
-        features.forEach(feature => {
-            grid.innerHTML += `<div class="led-cell" id="led-${type}-${feature.id}">
-                <div class="led"></div><div class="led"></div><div class="led"></div>
-            </div>`;
+    
+    // Create 4 rows of 6
+    typeRows.forEach(tId => {
+        featureCols.forEach(fId => {
+            grid.innerHTML += `
+                <div class="led-cell-compact" id="led-${tId}-${fId}">
+                    <div class="led-compact"></div>
+                    <div class="led-compact"></div>
+                    <div class="led-compact"></div>
+                </div>`;
         });
     });
 }
@@ -247,51 +257,78 @@ function showLearnedWeights(weights) {
 function renderLeds(cellId, value) {
     const cell = document.getElementById(cellId);
     if (!cell) return;
-    const leds = cell.querySelectorAll('.led');
-    leds.forEach(led => { led.className = 'led'; });
+    const leds = cell.querySelectorAll('.led-compact');
+    leds.forEach(led => { led.className = 'led-compact'; });
     
-    if (value > 0) for (let i = 0; i < value; i++) leds[i].classList.add('green');
-    else if (value < 0) for (let i = 0; i < Math.abs(value); i++) leds[i].classList.add('red');
+    if (value > 0) {
+        for (let i = 0; i < value; i++) leds[i].classList.add('green');
+    } else if (value < 0) {
+        for (let i = 0; i < Math.abs(value); i++) leds[i].classList.add('red');
+    }
 }
 
-function clearLedBoard() { document.querySelectorAll('.led').forEach(led => led.className = 'led'); }
+function clearLedBoard() { 
+    document.querySelectorAll('.led-compact').forEach(led => led.className = 'led-compact'); 
+}
+
+let z1StatsDone = false;
+let z1SingleCount = 0;
 
 function testZone1() {
+    // 1. Validation
     const rules = zone1Rules.filter(r => r);
-    if (rules.length === 0) { alert("Please add at least one rule!"); return; }
+    if (rules.length === 0) { 
+        alert("Please add at least one rule first!"); 
+        return; 
+    }
 
+    // 2. Calculation logic
     let fireCorrect = 0, nonFireCorrect = 0;
     testPokemon.forEach(p => {
         let matchesAll = true;
         rules.forEach(rule => {
             let pokeValue = p[rule.feature];
+            // Binary logic for wings, threshold logic for stats
             if (rule.feature !== 'HasWings') pokeValue = pokeValue > 5 ? 1 : 0;
-            
             const ruleValue = rule.state === 'high' ? 1 : 0;
             if (pokeValue !== ruleValue) matchesAll = false;
         });
         
         const predictedIsFire = matchesAll;
-        
         if (p.CorrectType === 'fire' && predictedIsFire) fireCorrect++;
         if (p.CorrectType !== 'fire' && !predictedIsFire) nonFireCorrect++;
     });
 
     const accuracy = ((fireCorrect + nonFireCorrect) / testPokemon.length) * 100;
-    const resultsPanel = document.getElementById('zone1-results');
-    resultsPanel.classList.add('show');
-    resultsPanel.innerHTML = `<h1><span class="emoji">📊</span> Classification Results</h1><div class="stats-grid">
-        <div class="stat-card"><div class="stat-value">${fireCorrect}/25</div><div class="stat-label">Fire Pokémon Identified</div></div>
-        <div class="stat-card"><div class="stat-value">${nonFireCorrect}/75</div><div class="stat-label">Non-Fire Correctly Rejected</div></div>
-        <div class="stat-card"><div class="stat-value">${accuracy.toFixed(1)}%</div><div class="stat-label">Overall Accuracy</div></div>
-    </div>`;
-    document.getElementById('zone1-complete').style.display = 'inline-block';
+
+    // 3. UI Update - Show result in the mini-block
+    const display = document.getElementById('zone1-stats-results');
+    if (display) {
+        display.innerHTML = `
+            <div style="background: white; padding: 10px; border-radius: 8px; margin-top:10px; border: 1px solid #2196f3;">
+                <p>✅ Experiment Complete!</p>
+                <p><strong>Accuracy: ${accuracy.toFixed(1)}%</strong></p>
+                <p style="font-size: 0.8em; color: #666;">(${fireCorrect}/25 Fire found, ${nonFireCorrect}/75 non-Fire rejected)</p>
+            </div>
+        `;
+    }
+    
+    // 4. UNLOCK Step 2
+    z1StatsDone = true;
+    const step2Section = document.getElementById('single-test-zone1');
+    if (step2Section) {
+        step2Section.classList.remove('locked'); // This makes the mystery box colorful and clickable
+    }
 }
 
 function testZone2() {
+    // 1. Validation (Check if fire has rules as a proxy)
+    if (zone2Rules.fire.every(r => r === null)) {
+        alert("Please set up your Master Plan rules for all types first!");
+        return;
+    }
+
     let totalCorrect = 0;
-    const typeResults = { fire: 0, water: 0, grass: 0, dragon: 0 };
-    
     testPokemon.forEach(p => {
         const scores = { fire: 0, water: 0, grass: 0, dragon: 0 };
         types.forEach(type => {
@@ -300,191 +337,133 @@ function testZone2() {
                     let pokeValue = p[rule.feature];
                     if (rule.feature !== 'HasWings') pokeValue = pokeValue > 5 ? 1 : 0;
                     const ruleValue = rule.state === 'high' ? 1 : 0;
-                    
                     if (pokeValue === ruleValue) {
-                        if (i === 0) scores[type] += 3;
-                        else if (i === 1 || i === 2) scores[type] += 2;
-                        else scores[type] += 1;
+                        const pts = (i === 0) ? 3 : (i < 3 ? 2 : 1);
+                        scores[type] += pts;
                     }
                 }
             });
         });
 
-        let maxScore = -1;
-        let predictedType = null;
-        
-        // Shuffle types so if scores are tied, the winner is random
-        const shuffledTypes = shuffleArray([...types]); 
-
-        shuffledTypes.forEach(type => {
-            if (scores[type] > maxScore) {
-                maxScore = scores[type];
-                predictedType = type;
-            }
-        });
-
-        if (predictedType === p.CorrectType) {
-            totalCorrect++;
-            typeResults[p.CorrectType]++;
-        }
+        let predictedType = types.reduce((a, b) => scores[a] > scores[b] ? a : b);
+        if (predictedType === p.CorrectType) totalCorrect++;
     });
-    
+
     const accuracy = (totalCorrect / testPokemon.length) * 100;
-    const typeEmojis = { fire: '🔥', water: '💧', grass: '🍃', dragon: '🐉' };
-    const resultsPanel = document.getElementById('zone2-results');
-    resultsPanel.classList.add('show');
-    resultsPanel.innerHTML = `<h1><span class="emoji">📊</span> Multi-Class Results</h1><div class="stats-grid">` + 
-        types.map(type => `
-        <div class="stat-card">
-            <div class="stat-value">${typeResults[type]}/25</div>
-            <div class="stat-label">${typeEmojis[type]} ${type.charAt(0).toUpperCase() + type.slice(1)}</div>
-        </div>`).join('') + `
-        <div class="stat-card" style="grid-column: span 2">
-            <div class="stat-value">${accuracy.toFixed(1)}%</div>
-            <div class="stat-label">Overall Accuracy</div>
+
+    // 2. UI Update
+    const display = document.getElementById('zone2-stats-results');
+    display.innerHTML = `
+        <div style="background: white; padding: 10px; border-radius: 8px; margin-top:10px; border: 1px solid #2196f3;">
+            <p>✅ Master Plan Analyzed!</p>
+            <p><strong>Total Accuracy: ${accuracy.toFixed(1)}%</strong></p>
         </div>
-    </div>`;
-    document.getElementById('zone2-complete').style.display = 'inline-block';
+    `;
+
+    // 3. UNLOCK Step 2
+    z2StatsDone = true;
+    document.getElementById('single-test-zone2').classList.remove('locked');
 }
 
-// --- Zone 3 Logic ---
+// Add this mapping object at the top of your script or inside the function
+// 1. Data Mapping (Using your specific filenames)
+const zone3Data = {
+    fire: { pure: "fireb.png", noisy: "firea.png", emoji: '🔥' },
+    water: { pure: "watera.png", noisy: "waterb.png", emoji: '💧' },
+    grass: { pure: "grassb.png", noisy: "grassa.png", emoji: '🍃' },
+    dragon: { pure: "dragonb.png", noisy: "dragona.png", emoji: '🐉' }
+};
+
+// 2. Track the results silently
+let userZone3Results = []; 
 
 function loadZone3Challenge() {
-    const typeEmojis = { fire: '🔥', water: '💧', grass: '🍃', dragon: '🐉' };
-    const currentType = types[zone3Step];
+    const typesArray = Object.keys(zone3Data); // ['fire', 'water', 'grass', 'dragon']
+    const currentType = typesArray[zone3Step];
+    const data = zone3Data[currentType];
     
     // Update Progress UI
     document.getElementById('zone3-progress').textContent = `${currentType.charAt(0).toUpperCase() + currentType.slice(1)} Type (${zone3Step + 1}/4)`;
     document.getElementById('zone3-progress-bar').style.width = `${((zone3Step + 1) / 4) * 100}%`;
-    document.getElementById('zone3-feedback').innerHTML = ''; // Clear old feedback
-    
-    // Randomize which side is Pure (Left or Right)
+    document.getElementById('zone3-feedback').innerHTML = ''; 
+
+    // Randomize A/B
     const isPureLeft = Math.random() > 0.5;
-    
-    // 1. Filter Pool for Current Type
-    const typePool = trainingPokemonPool.filter(p => p.CorrectType === currentType);
+    const leftImg = isPureLeft ? data.pure : data.noisy;
+    const rightImg = isPureLeft ? data.noisy : data.pure;
 
-    // 2. Find Comparable Pairs (Base names that have both -C and -N versions)
-    // We extract "Charmander" from "Charmander-C" or "Charmander-N"
-    const uniqueNames = [...new Set(typePool.map(p => p.name.replace(/-[CN].*$/, '')))];
-    
-    // Filter to find names that definitely have a matching pair in our data
-    const validPairs = uniqueNames.filter(baseName => {
-        const hasClear = typePool.some(p => p.name.includes(`${baseName}-C`));
-        const hasNoisy = typePool.some(p => p.name.includes(`${baseName}-N`));
-        return hasClear && hasNoisy;
-    });
-
-    // 3. Select 4 Random Base Names
-    // If we don't have enough pairs, we shuffle what we have.
-    const shuffledNames = validPairs.sort(() => 0.5 - Math.random()).slice(0, 4);
-
-    // 4. Generate Data for Left and Right
-    // If isPureLeft is true, Left gets Clean versions, Right gets Noisy versions
-    const leftData = shuffledNames.map(name => typePool.find(p => p.name.includes(`${name}-${isPureLeft ? 'C' : 'N'}`)));
-    const rightData = shuffledNames.map(name => typePool.find(p => p.name.includes(`${name}-${!isPureLeft ? 'C' : 'N'}`)));
-
-    // 5. Render HTML
     document.getElementById('zone3-challenge').innerHTML = `
-        <h3 style="text-align: center; margin: 20px 0; color:#555;">
-            ${typeEmojis[currentType]} Compare the data! Which package contains <strong>Clean (Pure)</strong> Data?
+        <h3 style="text-align: center; margin: 20px 0; color:#333;">
+            Level ${zone3Step + 1}: Which package is the <strong>Clean (Pure)</strong> ${currentType} data?
         </h3>
         <div class="package-comparison">
-            <div class="package-option" onclick="checkZone3Answer(${isPureLeft})">
+            <div class="package-option" onclick="collectZone3Answer(${isPureLeft})">
+                <img src="${leftImg}" style="width:100%; border-radius:10px;">
                 <h3>📦 Package A</h3>
-                <div class="package-grid">
-                    ${generateCardsHTML(leftData, currentType)}
-                </div>
             </div>
-            <div class="package-option" onclick="checkZone3Answer(${!isPureLeft})">
+            <div class="package-option" onclick="collectZone3Answer(${!isPureLeft})">
+                <img src="${rightImg}" style="width:100%; border-radius:10px;">
                 <h3>📦 Package B</h3>
-                <div class="package-grid">
-                    ${generateCardsHTML(rightData, currentType)}
-                </div>
             </div>
         </div>`;
 }
 
-function generateCardsHTML(pokemonList, type) {
-    const emoji = getEmojiForType(type);
-    
-    return pokemonList.map((p, index) => {
-        // Clean name for display (remove -C or -N)
-        const displayName = p.name.replace(/-[CN].*$/, '');
-        
-        // Calculate bar colors based on value
-        // High (8-10) = Green, Mid (4-7) = Orange, Low (0-3) = Red
-        const getBarColor = (val) => val >= 8 ? 'stat-high' : (val >= 4 ? 'stat-mid' : 'stat-low');
+// 3. New function to collect answers without feedback
+function collectZone3Answer(isCorrect) {
+    const typesArray = Object.keys(zone3Data);
+    const currentType = typesArray[zone3Step];
 
-        // Staggered animation delay
-        const delay = index * 0.1;
+    // Store the result for this type
+    userZone3Results.push({
+        type: currentType,
+        correct: isCorrect,
+        emoji: zone3Data[currentType].emoji
+    });
 
-        // Special logic for Wings (0 or 1)
-        const wingsText = p.HasWings ? '🦅 Yes' : '🚫 No';
-        const wingsColor = p.HasWings ? '#2e7d32' : '#999'; // Dark green or Grey
+    zone3Step++;
 
-        return `
-        <div class="mini-card" style="animation: dealCard 0.5s ease-out ${delay}s forwards;">
-            <h5>${emoji} ${displayName}</h5>
-            
-            <!-- 1. Wings (Binary) -->
-            <div class="mini-stat">
-                <span>Wings</span>
-                <span style="margin-left: auto; font-weight: bold; color: ${wingsColor}; font-size: 0.9em;">${wingsText}</span>
-            </div>
-
-            <!-- 2. Speed -->
-            <div class="mini-stat">
-                <span>Speed</span>
-                <div class="stat-bar-track">
-                    <div class="stat-bar-val ${getBarColor(p.Speed)}" style="width: ${p.Speed * 10}%"></div>
-                </div>
-            </div>
-            
-            <!-- 3. Attack -->
-            <div class="mini-stat">
-                <span>Atk</span>
-                <div class="stat-bar-track">
-                    <div class="stat-bar-val ${getBarColor(p.Attack)}" style="width: ${p.Attack * 10}%"></div>
-                </div>
-            </div>
-
-            <!-- 4. Defense -->
-            <div class="mini-stat">
-                <span>Def</span>
-                <div class="stat-bar-track">
-                    <div class="stat-bar-val ${getBarColor(p.Defense)}" style="width: ${p.Defense * 10}%"></div>
-                </div>
-            </div>
-            
-            <!-- 5. Altitude -->
-            <div class="mini-stat">
-                <span>Alt</span>
-                <div class="stat-bar-track">
-                    <div class="stat-bar-val ${getBarColor(p.HabitatAltitude)}" style="width: ${p.HabitatAltitude * 10}%"></div>
-                </div>
-            </div>
-
-            <!-- 6. Temperature -->
-            <div class="mini-stat">
-                <span>Temp</span>
-                <div class="stat-bar-track">
-                    <div class="stat-bar-val ${getBarColor(p.HabitatTemperature)}" style="width: ${p.HabitatTemperature * 10}%"></div>
-                </div>
-            </div>
-        </div>
-        `;
-    }).join('');
+    if (zone3Step < 4) {
+        // Move to next type silently
+        loadZone3Challenge();
+    } else {
+        // All 4 done! Show the big reveal
+        showZone3FinalResults();
+    }
 }
 
-function generatePackageSample(type, isPure) {
-    const pool = trainingPokemonPool.filter(p => p.CorrectType === type && p.name.endsWith(isPure ? '-C' : '-N'));
-    const samples = [];
-    for (let i = 0; i < 3; i++) {
-        const p = pool[Math.floor(Math.random() * pool.length)];
-        samples.push(`<div class="pokemon-sample"><h5>${p.name}</h5><div class="stat-row"><span>Speed:</span><span>${p.Speed}/10</span></div><div class="stat-row"><span>Attack:</span><span>${p.Attack}/10</span></div></div>`);
-    }
-    return samples.join('');
+// 4. The Final Reveal Function
+function showZone3FinalResults() {
+    let resultsHTML = `
+        <h2 style="text-align:center; margin-bottom:20px;">🕵️‍♂️ Lab 3 Results Reveal!</h2>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+    `;
+
+    userZone3Results.forEach(res => {
+        const statusClass = res.correct ? 'success' : 'error';
+        const statusIcon = res.correct ? '✅ PURE' : '❌ NOISY';
+        
+        resultsHTML += `
+            <div class="feedback ${statusClass}" style="margin:0; padding:15px;">
+                <span style="font-size:1.5em;">${res.emoji}</span><br>
+                <strong>${res.type.toUpperCase()}</strong><br>
+                <span style="font-size:1.2em;">${statusIcon}</span>
+            </div>
+        `;
+    });
+
+    resultsHTML += `</div>`;
+
+    // Calculate total score
+    const correctCount = userZone3Results.filter(r => r.correct).length;
+    resultsHTML += `
+        <div style="text-align:center; margin-top:30px;">
+            <h3>Final Score: ${correctCount} / 4</h3>
+            <p>${correctCount === 4 ? "Master Researcher! All pure data found." : "Good try! Some noisy data snuck in."}</p>
+        </div>
+    `;
+
+    document.getElementById('zone3-challenge').innerHTML = resultsHTML;
+    document.getElementById('zone3-complete').style.display = 'inline-block';
 }
 
 function checkZone3Answer(isCorrect) {
@@ -669,13 +648,19 @@ function trainZone4() {
 }
 
 function switchZone(zoneNum) {
+    // 1. Remove active classes from containers and buttons
     document.querySelectorAll('.zone-container').forEach(el => el.classList.remove('active'));
     document.querySelectorAll('.zone-btn').forEach(el => el.classList.remove('active'));
     
+    // 2. Set the new background image (Make sure extensions like .png or .jpg match your files)
+    document.body.style.backgroundImage = `url('lab${zoneNum}.jpg')`;
+
+    // 3. Activate the new zone container and button
     const activeZone = document.getElementById(`zone${zoneNum}`);
     activeZone.classList.add('active');
     document.getElementById(`zone${zoneNum}-btn`).classList.add('active');
 
+    // 4. Move the LED board to the current zone
     const ledBoard = document.getElementById('led-board');
     const targetSlot = activeZone.querySelector('.led-slot');
     if (ledBoard && targetSlot) {
@@ -684,7 +669,11 @@ function switchZone(zoneNum) {
 
     currentZone = zoneNum;
     updateLedBoard();
-    if (zoneNum === 3 && zone3Step === 0) { loadZone3Challenge(); }
+    
+    // Zone 3 specific logic
+    if (zoneNum === 3 && zone3Step === 0) { 
+        loadZone3Challenge(); 
+    }
 }
 
 function resetZone(zone) {
@@ -723,12 +712,12 @@ function completeJourney() {
 }
 const zoneHints = {
     1: [
-        "Not sure where to start? Look at page 2 — it shows what makes a Pokémon a Fire type. You can test your plan and try again if it doesn’t work!",
+        "Not sure where to start? Look at Guidebook — it shows what makes a Pokémon a Fire type. You can test your plan and try again if it doesn’t work!",
         "Look at which Pokémon are not Fire types — if your plan catches them too, there might be a conflict! Try removing or changing one clue to fix it.",
         "You can pick 1 to 4 Clue Cards for your plan. Do you think using more cards always makes it better? Try and see!"
     ],
     2: [
-        "Look at all 4 pages! Since the Dragon page is broken, use your imagination for dragons. If a clue isn’t clearly high or low for that type, it might not be needed in that plan.",
+        "Look at Guidebook! Since the Dragon page is broken, use your imagination for dragons. If a clue isn’t clearly high or low for that type, it might not be needed in that plan.",
         "Because order matters now, put the most important clue first — it’s usually the one that makes this Pokémon type special!",
         "If two types share the same clue, make a trade-off. You can put that clue last in both plans, or keep it in one and remove it from the other. Try both ways and see what works best!"
     ],
@@ -764,6 +753,7 @@ function showNextHint(zoneId) {
 }
 
 function runSingleTest() {
+    if (!z1StatsDone) return;
     // 1. Validation
     const activeRules = zone1Rules.filter(r => r !== null);
     if (activeRules.length === 0) {
@@ -880,6 +870,15 @@ function runSingleTest() {
         `;
 
     }, 500); // End of setTimeout
+
+    z1SingleCount++;
+    document.getElementById('z1-count').innerText = z1SingleCount;
+
+    if (z1SingleCount >= 3) {
+        document.getElementById('zone1-complete').style.display = 'inline-block';
+        // Auto-scroll to button
+        document.getElementById('zone1-complete').scrollIntoView({behavior: "smooth"});
+    }
 }
 
 // Helper to reset the view
@@ -1053,7 +1052,16 @@ function runSingleTestZone2() {
                 </div>
             </div>
         `;
+        if (z2StatsDone) {
+            z2SingleCount++;
+            const countSpan = document.getElementById('z2-count');
+            if (countSpan) countSpan.innerText = z2SingleCount;
 
+            if (z2SingleCount >= 3) {
+                document.getElementById('zone2-complete').style.display = 'inline-block';
+                document.getElementById('zone2-complete').scrollIntoView({behavior: "smooth"});
+            }
+        }                
     }, 500);
 }
 
@@ -1309,25 +1317,25 @@ function loadBoss(index) {
         <div><span>🌡️ Temp:</span> <strong>${boss.HabitatTemperature}</strong></div>
     `;
 
-    // 3. Run CheckBot (Rules)
-    const checkBotResult = getCheckBotPrediction(boss);
-    document.getElementById('checkbot-reasoning').innerHTML = checkBotResult.reasoning;
-    document.getElementById('checkbot-prediction').innerHTML = 
-        `${getEmojiForType(checkBotResult.prediction)} ${checkBotResult.prediction.toUpperCase()}`;
+    // 3. Run RuleBot (Rules)
+    const RuleBotResult = getRuleBotPrediction(boss);
+    document.getElementById('RuleBot-reasoning').innerHTML = RuleBotResult.reasoning;
+    document.getElementById('RuleBot-prediction').innerHTML = 
+        `${getEmojiForType(RuleBotResult.prediction)} ${RuleBotResult.prediction.toUpperCase()}`;
     // Store for validation
-    document.querySelector('.checkbot').dataset.prediction = checkBotResult.prediction;
+    document.querySelector('.RuleBot').dataset.prediction = RuleBotResult.prediction;
 
-    // 4. Run ChompBot (AI)
-    const chompBotResult = getChompBotPrediction(boss);
-    document.getElementById('chompbot-reasoning').innerHTML = chompBotResult.reasoning;
-    document.getElementById('chompbot-prediction').innerHTML = 
-        `${getEmojiForType(chompBotResult.prediction)} ${chompBotResult.prediction.toUpperCase()}`;
+    // 4. Run DataBot (AI)
+    const DataBotResult = getDataBotPrediction(boss);
+    document.getElementById('DataBot-reasoning').innerHTML = DataBotResult.reasoning;
+    document.getElementById('DataBot-prediction').innerHTML = 
+        `${getEmojiForType(DataBotResult.prediction)} ${DataBotResult.prediction.toUpperCase()}`;
     // Store for validation
-    document.querySelector('.chompbot').dataset.prediction = chompBotResult.prediction;
+    document.querySelector('.DataBot').dataset.prediction = DataBotResult.prediction;
 }
 
 // Logic reuse from Zone 2
-function getCheckBotPrediction(p) {
+function getRuleBotPrediction(p) {
     const scores = { fire: 0, water: 0, grass: 0, dragon: 0 };
     let details = "";
 
@@ -1363,7 +1371,7 @@ function getCheckBotPrediction(p) {
 }
 
 // Logic reuse from Zone 4
-function getChompBotPrediction(p) {
+function getDataBotPrediction(p) {
     const scores = { fire: 0, water: 0, grass: 0, dragon: 0 };
     
     // Shuffle for tie breaking

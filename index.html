@@ -21,8 +21,10 @@
         <p class="zone-subtitle">Simple Rules</p>
 
         <div class="dialogue-box">
-            <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
-            <div class="dialogue-text">"Welcome, young researcher! You selected Clue Cards to help CheckBot identify Fire-type Pokémon."</div>
+            <div class="dialogue-speaker">👨‍🔬 Professor Oak
+                 <button class="btn-guide-mini" onclick="openGuidebook()" title="Open Guidebook">📖 Guide</button>
+            </div>
+            <div class="dialogue-text">"Welcome to the journey! To help RuleBot identify Fire-types, we must give it clear instructions. Drag your Clue Cards into the slots to build its brain!"</div>
         </div>
 
     <div class="hint-wrapper">
@@ -33,60 +35,72 @@
         </div>
     </div>
     
-        <div class="led-slot">
-            <div class="led-board" id="led-board">
-                <h3>💡 LED Feedback Board</h3>
-                <div class="led-grid" id="led-grid-content"></div>
+ <!-- THE INTEGRATED RULES & LED AREA -->
+<div class="rules-layout-flex">
+    
+    <!-- LEFT COLUMN: Rule Slots -->
+    <div class="rule-slots-container" id="zone1-slots">
+        <div class="rule-slot" ondrop="dropFeature(event, 1, 0)" ondragover="allowDrop(event)">Drop Feature 1</div>
+        <div class="rule-slot" ondrop="dropFeature(event, 1, 1)" ondragover="allowDrop(event)">Drop Feature 2</div>
+        <div class="rule-slot" ondrop="dropFeature(event, 1, 2)" ondragover="allowDrop(event)">Drop Feature 3</div>
+        <div class="rule-slot" ondrop="dropFeature(event, 1, 3)" ondragover="allowDrop(event)">Drop Feature 4</div>
+    </div>
+
+    <!-- RIGHT COLUMN: LED Board Slot -->
+    <div class="led-slot"> 
+        <div class="led-board" id="led-board">
+            <div class="compact-led-wrapper">
+                <div class="led-header-row">
+                    <img src="row.png" class="column-img-wide">
+                </div>
+                <div class="led-body-row">
+                    <img src="column.png" class="row-img-tall">
+                    <div id="led-grid-content" class="led-grid-flipped"></div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
 
-        <div class="rule-slots-container" id="zone1-slots">
-            <div class="rule-slot" ondrop="dropFeature(event, 1, 0)" ondragover="allowDrop(event)">Drop Feature 1</div>
-            <div class="rule-slot" ondrop="dropFeature(event, 1, 1)" ondragover="allowDrop(event)">Drop Feature 2</div>
-            <div class="rule-slot" ondrop="dropFeature(event, 1, 2)" ondragover="allowDrop(event)">Drop Feature 3</div>
-            <div class="rule-slot" ondrop="dropFeature(event, 1, 3)" ondragover="allowDrop(event)">Drop Feature 4</div>
-        </div>
         <div class="feature-bank">
-            <h3>🎴 Available Clue Cards (Click to Flip, Drag to Use)</h3>
+            <button class="btn-mini-reset" onclick="resetZone(1)" title="Reset Rules">🔄 Reset</button>
             <div class="feature-list" id="feature-bank-list-z1"></div>
         </div>
 
-        <div class="single-test-section">
-        <h3>🕵️‍♀️ Mystery Single Test</h3>
-        <p style="text-align:center; color:#666; margin-bottom:15px;">Click the box to pull <strong>one random Pokémon</strong> and see if it passes your specific rules!</p>
-        
-        <div class="mystery-box-container" onclick="runSingleTest()">
-            <div class="mystery-box">
-                <span style="font-size: 3em;">🎁</span><br>
-                Open Mystery Box
-            </div>
-        </div>
-
-        <!-- The Result Display (Hidden initially) -->
-        <div id="single-test-result" class="single-result-panel">
-            <!-- Content injected via JS -->
-        </div>
+        <!-- STEP 1: STATISTICAL TESTING BLOCK -->
+    <div class="test-block-container" id="stats-test-zone1">
+        <h3>📊 Step 1: The Meadow Trial</h3>
+        <p>"Let's see how RuleBot handles a whole field of 100 Pokémon using your rules!"</p>
+        <button class="btn-run-stats" onclick="testZone1()">🧪 Run Experiment (100 Cases)</button>
+        <div id="zone1-stats-results" class="stats-mini-results"></div>
     </div>
 
-        <div class="controls">
-            <button class="btn btn-info" onclick="openGuidebook()">📖 Open Guidebook</button>
-            <button class="btn btn-primary" onclick="testZone1()">🧪 Test My Rules</button>
-            <button class="btn btn-danger" onclick="resetZone(1)">🔄 Reset</button>
+    <!-- STEP 2: MYSTERY SINGLE TEST (Locked until Step 1 is done) -->
+    <div class="single-test-section locked" id="single-test-zone1">
+        <h3>🎁 Step 2: The Mystery Gift Challenge</h3>
+        <p>"Wonderful! Now, let's open 3 mystery gifts to see if RuleBot makes the right call every time. Progress: <span id="z1-count">0</span>/3"</p>
+        <div class="mystery-box-container" onclick="runSingleTest()">
+            <div class="mystery-box"><span>🎁</span><br>Open Mystery Box</div>
         </div>
-        <div class="results-panel" id="zone1-results"></div>
-        <div class="controls">
-            <button class="btn btn-success" onclick="completeZone(1)" id="zone1-complete" style="display: none;">✅ Continue to Zone 2</button>
-        </div>
+        <div id="single-test-result" class="single-result-panel"></div>
+    </div>
+
+    <div class="controls" style="text-align:center;">
+        <button class="btn btn-success" onclick="completeZone(1)" id="zone1-complete" style="display: none;">✅ Lab 1 Complete - Continue</button>
+    </div>
     </div>
 
     <div id="zone2" class="zone-container">
         <h1><span class="emoji">🏖️</span> Zone 2: Azure Coast</h1>
         <p class="zone-subtitle">Multi-Class & Feature Importance</p>
 
-        <div class="dialogue-box">
-             <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
-            <div class="dialogue-text">"Excellent! Now, You chose Clue Cards for all four Pokémon types and decided the order (importance) of the cards."</div>
+         <div class="dialogue-box">
+        <div class="dialogue-speaker">
+            👨‍🔬 Professor Oak 
+            <button class="btn-guide-mini" onclick="openGuidebook()">📖 Guide</button>
         </div>
+        <div class="dialogue-text">"The Coast is home to many types! We need a Master Plan. Decide which clues are most important for all four types. Remember: the first slot has the most 'weight' in RuleBot's mind!"</div>
+    </div>
 
         <div class="hint-wrapper">
         <button class="btn-hint" onclick="showNextHint(2)">💡 Need a Hint?</button>
@@ -96,7 +110,9 @@
         </div>
         </div>
 
+        <div style="display:flex; justify-content:center; margin-bottom:20px;">
         <div class="led-slot"></div>
+    </div>
 
         <div class="multi-type-grid">
     <!-- Fire -->
@@ -156,47 +172,47 @@
     </div>
 </div>
         <div class="feature-bank">
-            <h3>🎴 Available Clue Cards (Click to Flip, Drag to Use)</h3>
-            <div class="feature-list" id="feature-bank-list-z2"></div>
+        <div class="bank-header">
+            <h3>🎴 Master Plan Clue Cards</h3>
+            <button class="btn-mini-reset" onclick="resetZone(2)">🔄 Reset</button>
         </div>
+        <div class="feature-list" id="feature-bank-list-z2"></div>
+    </div>
 
-        <div class="single-test-section">
-        <h3>🕵️‍♀️ Mystery Single Test (Scoring Mode)</h3>
-        <p style="text-align:center; color:#666; margin-bottom:15px;">
-            Click the box to pull a random Pokémon. Your AI will calculate a <strong>Score</strong> for each type based on your rule order!
-        </p>
+       <!-- STEP 1: STATISTICAL TESTING -->
+    <div class="test-block-container" id="stats-test-zone2">
+        <h3>📊 Step 1: The Grand Coast Trial</h3>
+        <p>"Let's see if your Master Plan can correctly sort every Pokémon on the beach!"</p>
+        <button class="btn-run-stats" onclick="testZone2()">🧪 Test Master Plan (100 Cases)</button>
+        <div id="zone2-stats-results" class="stats-mini-results"></div>
+    </div>
+
+    <!-- STEP 2: MYSTERY SINGLE TEST (Locked initially) -->
+    <div class="single-test-section locked" id="single-test-zone2">
+        <h3>🎁 Step 2: The Final Coast Exam</h3>
+        <p>One by one! Let's see how RuleBot calculates its 'Confidence' for these mystery Pokémon. Progress: <span id="z2-count">0</span>/3</p>
         
         <div class="mystery-box-container zone2-box-container" onclick="runSingleTestZone2()">
-            <div class="mystery-box">
-                <span style="font-size: 3em;">🎁</span><br>
-                Open Scoring Box
-            </div>
+            <div class="mystery-box"><span>🎁</span><br>Open Scoring Box</div>
         </div>
 
-        <!-- The Result Display -->
-        <div id="single-test-result-zone2" class="single-result-panel">
-            <!-- Content injected via JS -->
-        </div>
+        <div id="single-test-result-zone2" class="single-result-panel"></div>
     </div>
 
-        <div class="controls">
-            <button class="btn btn-info" onclick="openGuidebook()">📖 Open Guidebook</button>
-            <button class="btn btn-primary" onclick="testZone2()">🧪 Test Master Plan</button>
-            <button class="btn btn-danger" onclick="resetZone(2)">🔄 Reset</button>
-        </div>
-        <div class="results-panel" id="zone2-results"></div>
-        <div class="controls">
-            <button class="btn btn-success" onclick="completeZone(2)" id="zone2-complete" style="display: none;">✅ Continue to Zone 3</button>
-        </div>
+    <div class="controls" style="text-align:center;">
+        <button class="btn btn-success" onclick="completeZone(2)" id="zone2-complete" style="display: none;">✅ Lab 2 Complete - Continue</button>
     </div>
+</div>
 
     <div id="zone3" class="zone-container">
         <h1><span class="emoji">🏞️</span> Zone 3: Whispering Woods</h1>
-        <p class="zone-subtitle">Data Quality</p>
+        <p class="zone-subtitle">Upgrading to DataBot</p>
 
         <div class="dialogue-box">
             <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
-            <div class="dialogue-text">"Your rule-based system was good, but now it's time to learn a new way! You sorted between pure (clean) and wild (noisy) dataset packages."</div>
+            <div class="dialogue-text">"Big news, Researchers! RuleBot has been upgraded into <strong>DataBot</strong>. 
+            He doesn't need rules anymore—he learns from patterns! But watch out, Meowth has 
+            corrupted some training packages with 'noisy' data. We need to find the clean ones!"</div>
         </div>
 
         <div class="progress-indicator">
@@ -216,7 +232,8 @@
 
         <div class="dialogue-box">
             <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
-            <div class="dialogue-text">"Final challenge! You selected a limited number of Package Cards to train ChompBot."</div>
+            <div class="dialogue-text">"To cross this desert, DataBot needs a balanced mind. You can only carry <strong>4 packages</strong> 
+            in your backpack."</div>
         </div>
 
         <div class="hint-wrapper">
@@ -230,7 +247,7 @@
         <div class="led-slot"></div>
 
         <div class="dataset-selection">
-            <h3 style="text-align: center; margin-bottom: 20px;">📦 Available Dataset Packages (Select exactly 4)</h3>
+            <h3 style="text-align: center; margin-bottom: 20px;">📦 Packages (Select exactly 4)</h3>
             <p style="text-align: center; color: #666; margin-bottom: 20px;"><strong>Selected: <span id="selected-count">0</span> / 4</strong></p>
             <div class="dataset-cards" id="zone4-dataset-cards"></div>
         </div>
@@ -250,7 +267,7 @@
         <div class="mystery-box-container zone4-box-container" onclick="runSingleTestZone4()">
             <div class="mystery-box">
                 <span style="font-size: 3em;">🤖</span><br>
-                Ask ChompBot
+                Ask DataBot
             </div>
         </div>
 
@@ -273,8 +290,8 @@
         <div class="dialogue-speaker">👨‍🔬 Professor Oak</div>
         <div class="dialogue-text">
             "This is it! Three powerful Guardians block the path. 
-            <strong>CheckBot</strong> uses the rules CheckBot learned in Zone 2. 
-            <strong>ChompBot</strong> uses the patterns ChompBot learned in Zone 4.
+            <strong>RuleBot</strong> uses the rules RuleBot learned in Zone 2. 
+            <strong>DataBot</strong> uses the patterns DataBot learned in Zone 4.
             They might disagree... You must decide which bot to trust for each Guardian!"
         </div>
     </div>
@@ -295,27 +312,27 @@
         <!-- The Bots -->
         <div class="bots-comparison">
             
-            <!-- CheckBot (Rules) -->
-            <div class="bot-card checkbot">
+            <!-- RuleBot (Rules) -->
+            <div class="bot-card RuleBot">
                 <div class="bot-icon">🤖</div>
-                <h3>CheckBot</h3>
+                <h3>RuleBot</h3>
                 <p class="bot-subtitle">Rule-Based System</p>
-                <div class="bot-thinking" id="checkbot-reasoning">Analyzing rules...</div>
-                <div class="bot-prediction" id="checkbot-prediction">...</div>
-                <button class="btn btn-primary" onclick="trustBot('checkbot')">Trust CheckBot</button>
+                <div class="bot-thinking" id="RuleBot-reasoning">Analyzing rules...</div>
+                <div class="bot-prediction" id="RuleBot-prediction">...</div>
+                <button class="btn btn-primary" onclick="trustBot('RuleBot')">Trust RuleBot</button>
             </div>
 
             <!-- VS Badge -->
             <div class="vs-badge">VS</div>
 
-            <!-- ChompBot (ML) -->
-            <div class="bot-card chompbot">
+            <!-- DataBot (ML) -->
+            <div class="bot-card DataBot">
                 <div class="bot-icon">🦖</div>
-                <h3>ChompBot</h3>
+                <h3>DataBot</h3>
                 <p class="bot-subtitle">Trained Model</p>
-                <div class="bot-thinking" id="chompbot-reasoning">Calculating weights...</div>
-                <div class="bot-prediction" id="chompbot-prediction">...</div>
-                <button class="btn btn-success" onclick="trustBot('chompbot')">Trust ChompBot</button>
+                <div class="bot-thinking" id="DataBot-reasoning">Calculating weights...</div>
+                <div class="bot-prediction" id="DataBot-prediction">...</div>
+                <button class="btn btn-success" onclick="trustBot('DataBot')">Trust DataBot</button>
             </div>
 
         </div>
