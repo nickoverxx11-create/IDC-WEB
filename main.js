@@ -21,6 +21,31 @@ const features = [
 ];
 const types = ['fire', 'water', 'grass', 'dragon'];
 
+// OVERWRITE Data with User Request
+testPokemons = [
+    // Fire
+    { name: "Ponyta", CorrectType: "fire", HasWings: 0, Speed: 8, Attack: 7, Defense: 2, HabitatAltitude: 2, HabitatTemperature: 8, img: "Ponyta.png" },
+    { name: "Ninetales", CorrectType: "fire", HasWings: 0, Speed: 7, Attack: 9, Defense: 6, HabitatAltitude: 3, HabitatTemperature: 9, img: "Ninetales.png" },
+    { name: "Charizard", CorrectType: "fire", HasWings: 1, Speed: 4, Attack: 8, Defense: 5, HabitatAltitude: 8, HabitatTemperature: 9, img: "Charizard.png" },
+    { name: "Growlithe", CorrectType: "fire", HasWings: 0, Speed: 3, Attack: 7, Defense: 1, HabitatAltitude: 1, HabitatTemperature: 6, img: "Growlithe.png" },
+    
+    // Water
+    { name: "Slowpoke", CorrectType: "water", HasWings: 0, Speed: 1, Attack: 2, Defense: 7, HabitatAltitude: 1, HabitatTemperature: 3, img: "Slowpoke.png" },
+    { name: "Wailmer", CorrectType: "water", HasWings: 0, Speed: 2, Attack: 3, Defense: 9, HabitatAltitude: 0, HabitatTemperature: 0, img: "Wailmer.png" },
+    { name: "Gyarados", CorrectType: "water", HasWings: 1, Speed: 3, Attack: 9, Defense: 7, HabitatAltitude: 0, HabitatTemperature: 0, img: "Gyarados.png" },
+    { name: "Psyduck", CorrectType: "water", HasWings: 0, Speed: 3, Attack: 1, Defense: 6, HabitatAltitude: 0, HabitatTemperature: 1, img: "Psyduck.png" },
+
+    // Grass
+    { name: "Petilil", CorrectType: "grass", HasWings: 0, Speed: 3, Attack: 2, Defense: 6, HabitatAltitude: 4, HabitatTemperature: 3, img: "Petilil.png" },
+    { name: "Deerling", CorrectType: "grass", HasWings: 0, Speed: 6, Attack: 3, Defense: 5, HabitatAltitude: 6, HabitatTemperature: 3, img: "Deerling.png" },
+    { name: "Bayleef", CorrectType: "grass", HasWings: 0, Speed: 2, Attack: 4, Defense: 9, HabitatAltitude: 7, HabitatTemperature: 2, img: "Bayleef.png" },
+    { name: "Leafeon", CorrectType: "grass", HasWings: 0, Speed: 6, Attack: 5, Defense: 6, HabitatAltitude: 6, HabitatTemperature: 4, img: "Leafeon.png" },
+
+    // Dragon
+    { name: "Rayquaza", CorrectType: "dragon", HasWings: 1, Speed: 7, Attack: 9, Defense: 4, HabitatAltitude: 9, HabitatTemperature: 2, img: "Rayquaza.png" },
+    { name: "Dragonite", CorrectType: "dragon", HasWings: 1, Speed: 7, Attack: 9, Defense: 7, HabitatAltitude: 9, HabitatTemperature: 1, img: "Dragonite.png" },
+    { name: "Dialga", CorrectType: "dragon", HasWings: 0, Speed: 6, Attack: 9, Defense: 9, HabitatAltitude: 8, HabitatTemperature: 3, img: "Dialga.png" }
+];
 
 // Initialize App
 document.addEventListener('DOMContentLoaded', async () => {
@@ -74,7 +99,6 @@ function generateDatasetCards() {
                  style="grid-column: span ${d.span || 1};">
                 <h4>${d.name}</h4>
                 <div class="count">${d.count}</div>
-                <p>${isPure ? 'High Quality Data' : 'Contains Errors'}</p>
             </div>
         `;
         container.innerHTML += cardHtml;
@@ -142,22 +166,10 @@ function dropFeature(ev, zone, slotIndex, type = null) {
         return; // Stop the function
     }
 
-    // --- 4. PROCEED WITH DROP (Existing Logic) ---
+    // --- 4. PROCEED WITH DROP ---
     const slotElement = ev.currentTarget;
     
-    // Update Text
-    const existingLabel = slotElement.querySelector('.slot-label')?.outerHTML || '';
-    slotElement.innerHTML = `<strong>${data.text}</strong>${existingLabel}`;
-    slotElement.classList.add('filled');
-    
-    // Apply Color Logic (Green vs Red)
-    if (data.state === 'low') {
-        slotElement.classList.add('low-state');
-    } else {
-        slotElement.classList.remove('low-state');
-    }
-
-    // Save Rule Logic
+    // Save Rule Logic First
     const rule = { feature: data.feature, state: data.state };
 
     if (zone === 1) {
@@ -165,9 +177,52 @@ function dropFeature(ev, zone, slotIndex, type = null) {
     } else if (zone === 2 && type) {
         zone2Rules[type][slotIndex] = rule;
     }
+
+    // Render the slot content
+    // We add onclick="toggleSlotState(...)" so the user can flip it later
+    const typeArg = type ? `'${type}'` : 'null';
+    slotElement.setAttribute('onclick', `toggleSlotState(this, ${zone}, ${slotIndex}, ${typeArg})`);
+    
+    updateSlotVisuals(slotElement, rule); // Helper function (see below)
     
     updateLedBoard();
     document.querySelectorAll('.dragging').forEach(el => el.classList.remove('dragging'));
+
+}
+
+// NEW: Toggle state when clicking an existing slot
+function toggleSlotState(slotElement, zone, slotIndex, type) {
+    // 1. Get the rule object
+    let rule = null;
+    if (zone === 1) rule = zone1Rules[slotIndex];
+    else if (zone === 2) rule = zone2Rules[type][slotIndex];
+
+    if (!rule) return; // Should not happen if clicked
+
+    // 2. Flip State
+    rule.state = (rule.state === 'high') ? 'low' : 'high';
+
+    // 3. Update Visuals & LEDs
+    updateSlotVisuals(slotElement, rule);
+    updateLedBoard();
+}
+
+// NEW: Helper to draw the text inside the slot
+function updateSlotVisuals(slotElement, rule) {
+    const featureObj = features.find(f => f.id === rule.feature);
+    const text = (rule.state === 'high') ? featureObj.high : featureObj.low;
+
+    // Preserve the label (1st, 2nd, etc) if it exists
+    const existingLabel = slotElement.querySelector('.slot-label')?.outerHTML || '';
+    
+    slotElement.innerHTML = `<strong>${text}</strong>${existingLabel}`;
+    slotElement.classList.add('filled');
+    
+    if (rule.state === 'low') {
+        slotElement.classList.add('low-state');
+    } else {
+        slotElement.classList.remove('low-state');
+    }
 }
 
 function initializeZone4Data() {
@@ -322,13 +377,16 @@ function testZone1() {
 }
 
 function testZone2() {
-    // 1. Validation (Check if fire has rules as a proxy)
+    // 1. Validation
     if (zone2Rules.fire.every(r => r === null)) {
         alert("Please set up your Master Plan rules for all types first!");
         return;
     }
 
     let totalCorrect = 0;
+    // NEW: Counter for per-type accuracy
+    const typeCorrect = { fire: 0, water: 0, grass: 0, dragon: 0 };
+    
     testPokemon.forEach(p => {
         const scores = { fire: 0, water: 0, grass: 0, dragon: 0 };
         types.forEach(type => {
@@ -346,17 +404,41 @@ function testZone2() {
         });
 
         let predictedType = types.reduce((a, b) => scores[a] > scores[b] ? a : b);
-        if (predictedType === p.CorrectType) totalCorrect++;
+        
+        if (predictedType === p.CorrectType) {
+            totalCorrect++;
+            // NEW: Increment specific type counter
+            typeCorrect[p.CorrectType]++;
+        }
     });
 
     const accuracy = (totalCorrect / testPokemon.length) * 100;
 
-    // 2. UI Update
+    // 2. UI Update (With Detailed Grid)
     const display = document.getElementById('zone2-stats-results');
+    
     display.innerHTML = `
-        <div style="background: white; padding: 10px; border-radius: 8px; margin-top:10px; border: 1px solid #2196f3;">
-            <p>✅ Master Plan Analyzed!</p>
-            <p><strong>Total Accuracy: ${accuracy.toFixed(1)}%</strong></p>
+        <div style="background: white; padding: 15px; border-radius: 8px; margin-top:10px; border: 1px solid #2196f3;">
+            <h4 style="margin:0 0 10px 0; border-bottom:1px solid #eee; padding-bottom:5px;">✅ Experiment Results</h4>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px; margin-bottom:10px;">
+                <div style="background:#fff3e0; padding:5px; border-radius:5px; text-align:center;">
+                    🔥 Fire: <strong>${typeCorrect.fire}/25</strong>
+                </div>
+                <div style="background:#e3f2fd; padding:5px; border-radius:5px; text-align:center;">
+                    💧 Water: <strong>${typeCorrect.water}/25</strong>
+                </div>
+                <div style="background:#e8f5e9; padding:5px; border-radius:5px; text-align:center;">
+                    🍃 Grass: <strong>${typeCorrect.grass}/25</strong>
+                </div>
+                <div style="background:#f3e5f5; padding:5px; border-radius:5px; text-align:center;">
+                    🐉 Dragon: <strong>${typeCorrect.dragon}/25</strong>
+                </div>
+            </div>
+
+            <p style="font-size:1.1em; text-align:center; margin:0;">
+                <strong>Total Accuracy: ${accuracy.toFixed(1)}%</strong>
+            </p>
         </div>
     `;
 
@@ -376,6 +458,7 @@ const zone3Data = {
 
 // 2. Track the results silently
 let userZone3Results = []; 
+let currentZ3Layout = null; 
 
 function loadZone3Challenge() {
     const typesArray = Object.keys(zone3Data); // ['fire', 'water', 'grass', 'dragon']
@@ -389,6 +472,8 @@ function loadZone3Challenge() {
 
     // Randomize A/B
     const isPureLeft = Math.random() > 0.5;
+     currentZ3Layout = isPureLeft;
+
     const leftImg = isPureLeft ? data.pure : data.noisy;
     const rightImg = isPureLeft ? data.noisy : data.pure;
 
@@ -408,25 +493,28 @@ function loadZone3Challenge() {
         </div>`;
 }
 
-// 3. New function to collect answers without feedback
-function collectZone3Answer(isCorrect) {
+function collectZone3Answer(choseLeft) {
     const typesArray = Object.keys(zone3Data);
     const currentType = typesArray[zone3Step];
 
-    // Store the result for this type
+    // Determine correctness
+    // If layout isPureLeft(true) and user choseLeft(true) -> Correct
+    // If layout isPureLeft(false) and user choseLeft(false) -> Correct (chose right, which was pure)
+    const isCorrect = (currentZ3Layout === choseLeft);
+
     userZone3Results.push({
         type: currentType,
         correct: isCorrect,
+        choseLeft: choseLeft,     // What user clicked
+        layoutIsPureLeft: currentZ3Layout, // Where the answer actually was
         emoji: zone3Data[currentType].emoji
     });
 
     zone3Step++;
 
     if (zone3Step < 4) {
-        // Move to next type silently
         loadZone3Challenge();
     } else {
-        // All 4 done! Show the big reveal
         showZone3FinalResults();
     }
 }
@@ -453,12 +541,16 @@ function showZone3FinalResults() {
 
     resultsHTML += `</div>`;
 
-    // Calculate total score
     const correctCount = userZone3Results.filter(r => r.correct).length;
+
     resultsHTML += `
-        <div style="text-align:center; margin-top:30px;">
-            <h3>Final Score: ${correctCount} / 4</h3>
-            <p>${correctCount === 4 ? "Master Researcher! All pure data found." : "Good try! Some noisy data snuck in."}</p>
+        <div style="text-align:center; margin-top:20px;">
+            <h3>Score: ${correctCount} / 4</h3>
+            <p>${correctCount === 4 ? "Perfect!" : "Some noisy data got in."}</p>
+            
+            <div style="margin-top:20px;">
+                 <button class="btn-guide-mini" onclick="reviewZone3(0)">🔍 Review My Choices</button>
+            </div>
         </div>
     `;
 
@@ -558,23 +650,32 @@ function trainZone4() {
         }
     });
 
-    // Calculate Average Weights (Mapping 0-10 scale to -3 to +3 for LEDs)
     types.forEach(t => { 
         learnedWeights[t] = {}; 
         features.forEach(f => { 
-            // If we have data for this type, calc average. If not, default to 5 (neutral).
-            const avg = counts[t] > 0 ? sums[t][f.id] / counts[t] : 5; 
+            
+            // --- FIX START ---
+            // If we have NO data for this type (e.g. you only chose Grass), 
+            // set weight to 0 (Grey/Neutral) instead of guessing.
+            if (counts[t] === 0) {
+                learnedWeights[t][f.id] = 0;
+                return; // Skip the rest for this feature
+            }
+            
+            // Calculate actual average
+            const avg = sums[t][f.id] / counts[t]; 
+            // --- FIX END ---
             
             // Formula: (Average - 5) / 1.66  -> Maps 0..10 to approx -3..+3
             if (f.id === 'HasWings') {
-            // Map 0..1 range to -3..+3 range
-            // If avg > 0.5 (Mostly wings) -> +3
-            // If avg < 0.5 (Mostly no wings) -> -3
-            learnedWeights[t][f.id] = avg > 0.5 ? 3 : -3;
-        } else {
-            // Normal math for 0-10 stats
-            learnedWeights[t][f.id] = Math.max(-3, Math.min(3, Math.round((avg - 5) / 1.66))); 
-        }
+                // Map 0..1 range to -3..+3 range
+                // If avg > 0.5 (Mostly wings) -> +3
+                // If avg < 0.5 (Mostly no wings) -> -3
+                learnedWeights[t][f.id] = avg > 0.5 ? 3 : -3;
+            } else {
+                // Normal math for 0-10 stats
+                learnedWeights[t][f.id] = Math.max(-3, Math.min(3, Math.round((avg - 5) / 1.66))); 
+            }
         }); 
     });
 
@@ -774,8 +875,10 @@ function runSingleTest() {
         boxContainer.style.display = 'none'; // Hide box
         resultPanel.style.display = 'block'; // Show result container
 
-        // --- CALCULATION LOGIC (Same as before) ---
-        const p = testPokemon[Math.floor(Math.random() * testPokemon.length)];
+        // --- CALCULATION LOGIC ---
+        // Picks 1 random from the 15 Pokemon in testPokemon
+        const p = testPokemons[Math.floor(Math.random() * testPokemons.length)];
+        
         let allRulesPassed = true;
         let logicRowsHTML = "";
 
@@ -797,7 +900,6 @@ function runSingleTest() {
                 pokeStatText = `${featureObj.name}: ${pokeValueRaw} (${stateText})`;
             }
 
-            // Note the 'reveal-item' and 'delay' classes added here
             logicRowsHTML += `
                 <tr class="reveal-item delay-${index + 3}">
                     <td><strong>Rule ${index + 1}:</strong> ${ruleText}</td>
@@ -831,21 +933,21 @@ function runSingleTest() {
             </div>`;
         }
 
-        // 4. Render with Animation Classes
+        // 4. Render with IMAGE instead of Emoji
         resultPanel.innerHTML = `
             <div class="single-test-grid">
                 <!-- Left: Pokemon Card (Appears 1st) -->
                 <div class="poke-detail-card reveal-item delay-1">
-                    <div style="font-size:3em; margin-bottom:10px;">
-                        ${getEmojiForType(p.CorrectType)}
-                    </div>
+                    <!-- CHANGED: Image Tag Here -->
+                    <img src="${p.img}" alt="${p.name}" style="width: 120px; height: auto; margin-bottom: 10px; object-fit: contain;">
+                    
                     <h3>${p.name}</h3>
                     <div class="poke-type-badge" style="background:${typeColor}">
                         ${p.CorrectType.toUpperCase()}
                     </div>
                 </div>
 
-                <!-- Right: Logic Table (Rows appear 2nd, 3rd...) -->
+                <!-- Right: Logic Table -->
                 <div>
                     <table class="logic-table">
                         <thead class="reveal-item delay-2">
@@ -861,7 +963,6 @@ function runSingleTest() {
                     </table>
                     ${verdictHTML}
                     
-                    <!-- Retry Button -->
                     <div class="reveal-item delay-final" style="text-align:center">
                         <button class="btn-retry-small" onclick="resetSingleTest()">🔄 Test Another Pokémon</button>
                     </div>
@@ -869,14 +970,13 @@ function runSingleTest() {
             </div>
         `;
 
-    }, 500); // End of setTimeout
+    }, 500); 
 
     z1SingleCount++;
     document.getElementById('z1-count').innerText = z1SingleCount;
 
     if (z1SingleCount >= 3) {
         document.getElementById('zone1-complete').style.display = 'inline-block';
-        // Auto-scroll to button
         document.getElementById('zone1-complete').scrollIntoView({behavior: "smooth"});
     }
 }
@@ -908,8 +1008,6 @@ function getEmojiForType(type) {
 // --- Zone 2 Single Test Logic ---
 
 function runSingleTestZone2() {
-    // 1. Validation: Check if any rules are set
-    // We check if at least one rule slot in 'fire' is filled as a proxy
     if (zone2Rules['fire'].every(r => r === null)) {
         alert("Please set up your Master Plan rules first!");
         return;
@@ -919,7 +1017,6 @@ function runSingleTestZone2() {
     const box = boxContainer.querySelector('.mystery-box');
     const resultPanel = document.getElementById('single-test-result-zone2');
 
-    // 2. Animation
     box.classList.add('shaking');
 
     setTimeout(() => {
@@ -927,23 +1024,21 @@ function runSingleTestZone2() {
         boxContainer.style.display = 'none';
         resultPanel.style.display = 'block';
 
-        // 3. Pick Random Pokemon
-        const p = testPokemon[Math.floor(Math.random() * testPokemon.length)];
+        // Pick Random Pokemon from the 15 list
+        const p = testPokemons[Math.floor(Math.random() * testPokemons.length)];
 
-        // 4. Calculate Scores for ALL types
+        // Calculate Scores
         const typeScores = { fire: 0, water: 0, grass: 0, dragon: 0 };
-        const typeMaxPossible = 8; // 3 + 2 + 2 + 1 = 8 points max
+        const typeMaxPossible = 8; 
 
         types.forEach(type => {
             zone2Rules[type].forEach((rule, index) => {
                 if (rule) {
                     let pokeValueRaw = p[rule.feature];
                     let pokeValueBinary = (rule.feature === 'HasWings') ? pokeValueRaw : (pokeValueRaw > 5 ? 1 : 0);
-                    
                     const requiredBinary = rule.state === 'high' ? 1 : 0;
                     
                     if (pokeValueBinary === requiredBinary) {
-                        // Points based on slot index: 0=3pts, 1=2pts, 2=2pts, 3=1pt
                         if (index === 0) typeScores[type] += 3;
                         else if (index === 1 || index === 2) typeScores[type] += 2;
                         else typeScores[type] += 1;
@@ -952,24 +1047,11 @@ function runSingleTestZone2() {
             });
         });
 
-        // 5. Determine Winner
-        let maxScore = -1;
-        let predictedType = 'fire'; // Default
-        
-        const shuffledTypes = shuffleArray([...types]);
-
-        // Sort types by score descending for display
         const sortedTypes = types.slice().sort((a, b) => typeScores[b] - typeScores[a]);
-        
-        // Prediction is the top one
-        predictedType = sortedTypes[0];
-        maxScore = typeScores[predictedType];
-
+        const predictedType = sortedTypes[0];
         const actualType = p.CorrectType;
         const isCorrect = predictedType === actualType;
 
-        // 6. Build HTML
-        // Generate Score Rows
         let scoreRowsHTML = "";
         sortedTypes.forEach((type, index) => {
             const score = typeScores[type];
@@ -994,7 +1076,6 @@ function runSingleTestZone2() {
             `;
         });
 
-        // Generate Verdict
         let verdictHTML = "";
         if (isCorrect) {
             verdictHTML = `<div class="final-verdict verdict-success verdict-stamp delay-final">
@@ -1012,13 +1093,14 @@ function runSingleTestZone2() {
                               actualType === 'water' ? '#2196f3' : 
                               actualType === 'grass' ? '#4caf50' : '#673ab7';
 
+        // Render with IMAGE
         resultPanel.innerHTML = `
             <div class="single-test-grid">
                 <!-- Left: Pokemon Card -->
                 <div class="poke-detail-card reveal-item delay-1">
-                    <div style="font-size:3em; margin-bottom:10px;">
-                        ${getEmojiForType(p.CorrectType)}
-                    </div>
+                    <!-- CHANGED: Image Tag Here -->
+                    <img src="${p.img}" alt="${p.name}" style="width: 120px; height: auto; margin-bottom: 10px; object-fit: contain;">
+
                     <h3>${p.name}</h3>
                     <div class="poke-type-badge" style="background:${actualTypeColor}">
                         ${p.CorrectType.toUpperCase()}
@@ -1026,8 +1108,6 @@ function runSingleTestZone2() {
                     <div style="margin-top:15px; font-size:0.85em; color:#666; text-align:left;">
                         <strong>Stats:</strong><br>
                         ${features.map(f => {
-                            // Don't show ALL stats, just Wings + 2 random or important ones? 
-                            // Actually showing all is fine for debugging/learning
                             let val = p[f.id];
                             if(f.id !== 'HasWings') val += '/10';
                             else val = val ? 'Yes' : 'No';
@@ -1081,7 +1161,6 @@ function resetSingleTestZone2() {
 // --- Zone 4 Single Test Logic ---
 
 function runSingleTestZone4() {
-    // 1. Validation
     if (!currentLearnedWeights) {
         alert("Please train the AI first!");
         return;
@@ -1091,7 +1170,6 @@ function runSingleTestZone4() {
     const box = boxContainer.querySelector('.mystery-box');
     const resultPanel = document.getElementById('single-test-result-zone4');
 
-    // 2. Animation
     box.classList.add('shaking');
 
     setTimeout(() => {
@@ -1099,57 +1177,59 @@ function runSingleTestZone4() {
         boxContainer.style.display = 'none';
         resultPanel.style.display = 'block';
 
-        // 3. Pick Random Pokemon
-        const p = testPokemon[Math.floor(Math.random() * testPokemon.length)];
+        // Pick Random Pokemon from the 15 list
+        const p = testPokemons[Math.floor(Math.random() * testPokemons.length)];
 
-        // 4. Calculate Confidence Scores
+        // Calculate Scores
         const typeScores = { fire: 0, water: 0, grass: 0, dragon: 0 };
-        
-        // This math must match trainZone4 exactly
         types.forEach(t => {
             typeScores[t] = 0;
             features.forEach(f => {
                 let val = p[f.id];
-                if (f.id === 'HasWings') {
-                    val = val === 1 ? 10 : 0;
-                }
-
-                // Now (10 - 5) = +5, so Positive Weight * +5 = Positive Score!
+                if (f.id === 'HasWings') val = val === 1 ? 10 : 0;
                 typeScores[t] += (val - 5) * currentLearnedWeights[t][f.id];
             });
         });
 
-        // 5. Determine Winner
-        // Convert to a prettier "Confidence" number (roughly 0 to 100%)
-        // Raw scores usually range from -50 to +50. Let's normalize slightly for display.
-        const formattedScores = [];
+        // Determine Winner & Calculate Percentages (Softmax)
         let maxScore = -Infinity;
         let predictedType = 'fire';
-
-        types.forEach(type => {
-            const raw = typeScores[type];
-            if (raw > maxScore) {
-                maxScore = raw;
-                predictedType = type;
+        const rawScores = [];
+        types.forEach(t => {
+            const s = typeScores[t];
+            if (s > maxScore) {
+                maxScore = s;
+                predictedType = t;
             }
-            // Simple normalization for visualization (Shift +50 to make positive, cap at 100)
-            let visualPercent = Math.max(0, Math.min(100, (raw + 40))); 
-            
-            formattedScores.push({ type: type, score: raw, percent: visualPercent });
+            rawScores.push({ type: t, val: s });
         });
 
-        // Sort for Leaderboard
-        formattedScores.sort((a, b) => b.score - a.score);
+        let sumExp = 0;
+        const expScores = {};
+        types.forEach(t => {
+            const expVal = Math.exp(typeScores[t] / 12); 
+            expScores[t] = expVal;
+            sumExp += expVal;
+        });
+
+        const formattedScores = [];
+        types.forEach(type => {
+            const raw = typeScores[type];
+            const percent = (expScores[type] / sumExp) * 100;
+            formattedScores.push({ type: type, score: raw, percent: percent });
+        });
+
+        formattedScores.sort((a, b) => b.percent - a.percent);
 
         const actualType = p.CorrectType;
         const isCorrect = predictedType === actualType;
 
-        // 6. Build HTML
         let scoreRowsHTML = "";
         formattedScores.forEach((item, index) => {
             const isWinner = (item.type === predictedType);
             const typeNameCap = item.type.charAt(0).toUpperCase() + item.type.slice(1);
-            
+            const displayPercent = item.percent.toFixed(1);
+
             scoreRowsHTML += `
                 <tr class="${isWinner ? 'row-winner' : ''} reveal-item delay-${index + 2}">
                     <td>
@@ -1161,7 +1241,7 @@ function runSingleTestZone4() {
                         <div class="score-bar-container">
                             <div class="score-bar-fill bar-${item.type}" style="width: ${item.percent}%"></div>
                         </div>
-                        <strong>${item.score.toFixed(0)}</strong>
+                        <strong>${displayPercent}%</strong>
                     </td>
                 </tr>
             `;
@@ -1185,13 +1265,14 @@ function runSingleTestZone4() {
                               actualType === 'water' ? '#2196f3' : 
                               actualType === 'grass' ? '#4caf50' : '#673ab7';
 
+        // Render with IMAGE
         resultPanel.innerHTML = `
             <div class="single-test-grid">
                 <!-- Left: Pokemon Card -->
                 <div class="poke-detail-card reveal-item delay-1">
-                    <div style="font-size:3em; margin-bottom:10px;">
-                        ${getEmojiForType(p.CorrectType)}
-                    </div>
+                    <!-- CHANGED: Image Tag Here -->
+                    <img src="${p.img}" alt="${p.name}" style="width: 120px; height: auto; margin-bottom: 10px; object-fit: contain;">
+
                     <h3>${p.name}</h3>
                     <div class="poke-type-badge" style="background:${actualTypeColor}">
                         ${p.CorrectType.toUpperCase()}
@@ -1527,4 +1608,54 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+function reviewZone3(stepIndex) {
+    if (stepIndex < 0 || stepIndex >= 4) return;
+
+    const res = userZone3Results[stepIndex];
+    const data = zone3Data[res.type];
+    
+    // Reconstruct images based on the saved layout
+    const leftImg = res.layoutIsPureLeft ? data.pure : data.noisy;
+    const rightImg = res.layoutIsPureLeft ? data.noisy : data.pure;
+    
+    // Styling for feedback
+    const leftStyle = (res.choseLeft) ? "border: 4px solid #333; transform: scale(1.02);" : "opacity: 0.6;";
+    const rightStyle = (!res.choseLeft) ? "border: 4px solid #333; transform: scale(1.02);" : "opacity: 0.6;";
+    
+    const leftOverlay = (res.layoutIsPureLeft) ? "✅ PURE" : "❌ NOISY";
+    const rightOverlay = (!res.layoutIsPureLeft) ? "✅ PURE" : "❌ NOISY";
+
+    // Navigation Buttons
+    const prevBtn = stepIndex > 0 ? `<button onclick="reviewZone3(${stepIndex-1})">⬅ Prev</button>` : "";
+    const nextBtn = stepIndex < 3 ? `<button onclick="reviewZone3(${stepIndex+1})">Next ➡</button>` : `<button onclick="showZone3FinalResults()">Done</button>`;
+
+    const html = `
+        <h3 style="text-align:center;">Review: ${res.emoji} ${res.type.toUpperCase()}</h3>
+        <p style="text-align:center;">You chose: <strong>${res.correct ? "Correct Package" : "Wrong Package"}</strong></p>
+        
+        <div class="package-comparison">
+            <!-- LEFT PACKAGE -->
+            <div class="package-option" style="${leftStyle} position:relative; pointer-events:none;">
+                <div style="position:absolute; top:0; left:0; width:100%; background:rgba(255,255,255,0.8); font-weight:bold;">${leftOverlay}</div>
+                <img src="${leftImg}" style="width:100%; border-radius:10px;">
+                ${res.choseLeft ? '<div style="background:blue; color:white; padding:5px;">YOU PICKED THIS</div>' : ''}
+            </div>
+
+            <!-- RIGHT PACKAGE -->
+            <div class="package-option" style="${rightStyle} position:relative; pointer-events:none;">
+                <div style="position:absolute; top:0; left:0; width:100%; background:rgba(255,255,255,0.8); font-weight:bold;">${rightOverlay}</div>
+                <img src="${rightImg}" style="width:100%; border-radius:10px;">
+                ${!res.choseLeft ? '<div style="background:blue; color:white; padding:5px;">YOU PICKED THIS</div>' : ''}
+            </div>
+        </div>
+
+        <div style="text-align:center; margin-top:20px; gap:10px; display:flex; justify-content:center;">
+            ${prevBtn}
+            ${nextBtn}
+        </div>
+    `;
+
+    document.getElementById('zone3-challenge').innerHTML = html;
 }
